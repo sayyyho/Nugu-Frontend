@@ -1,8 +1,8 @@
 const fontGenerator = (
   fontFamily,
-  fontSize = "1rem",
+  fontSize = "17px",
   fontWeight = "400",
-  lineHeight = "1.5",
+  lineHeight = "150%",
   letterSpacing = "normal"
 ) => ({
   "font-family": fontFamily,
@@ -33,9 +33,10 @@ export const theme = {
   },
 
   fonts: {
-    default: fontGenerator("CHAB", "1rem", "400", "1.5", "normal"),
+    default: fontGenerator("Pretendard", "17px", "400", "150%", "normal"),
 
     // LOTTERIA CHAB 폰트 설정
     CHAB: fontGenerator("CHAB"),
+    Pretendard: fontGenerator("Pretendard"),
   },
 };

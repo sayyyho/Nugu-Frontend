@@ -1,11 +1,17 @@
-import * as S from "./style";
+import * as S from "./styled";
 
-export const InputComp = () => {
+export const InputComp = ({ title, name, value, onChange, placeholder }) => {
   return (
     <label>
       <S.textfield>
-        <div></div>
-        <S.InputContainer></S.InputContainer>
+        <S.textTitle>{title}</S.textTitle>
+        <S.InputContainer
+          type="text"
+          name={name}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        ></S.InputContainer>
       </S.textfield>
     </label>
   );

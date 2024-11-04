@@ -17,9 +17,7 @@ export const textTitle = styled.div`
   justify-content: center;
   flex-shrink: 0;
   color: ${({ theme }) => theme.colors.blue300};
-  font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
-  font-size: 15px;
-  font-weight: 600;
+  ${({ theme }) => theme.fonts.pretendardB4}
 `;
 export const InputContainer = styled.input`
   display: flex;

@@ -19,10 +19,52 @@ i {font-style:normal}
 input::placeholder {
     color: #d2deef; // 기본 placeholder 색상
 }
+:root {--vh: 100%;}
+
+html {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	-webkit-touch-callout: none;
+    -webkit-tap-highlight-color:rgb(0 0 0 / 0%);
+    scroll-behavior: smooth; 
+
+	@media (max-width: 360px) {
+		font-size:12px;
+	}
+}
+
+body {
+	width: 100%;
+	max-width: 540px;
+	overflow-x: hidden;
+
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+
+	::-webkit-scrollbar {
+    display: none;
+	}
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
+
+	display: flex;
+	align-items:center;
+
 	min-height: 100vh;
 }
 
@@ -39,12 +81,8 @@ input::placeholder {
 
 
 
-
-
-
 // 초기 html 설정
 html {
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -66,5 +104,4 @@ body {
 	color: ${({ theme }) => theme.colors.default};
 	font-family: "CHAB", "Pretendard", sans-serif;
 }
-
 `;

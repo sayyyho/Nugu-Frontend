@@ -8,6 +8,5 @@ export const LogoContainer = styled.div`
 `;
 export const title = styled.div`
   color: ${({ theme }) => theme.colors.blue300};
-  font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
-  font-size: 17px;
+  ${({ theme }) => theme.fonts.pretendardB5}
 `;

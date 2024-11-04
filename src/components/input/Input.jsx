@@ -1,10 +1,10 @@
 import * as S from "./styled";
 
-export const InputComp = ({ title, name, value, onChange, placeholder }) => {
+export const Input = ({ title, name, value, onChange, placeholder }) => {
   return (
     <label>
-      <S.textfield>
-        <S.textTitle>{title}</S.textTitle>
+      <S.Textfield>
+        <S.TextTitle>{title}</S.TextTitle>
         <S.InputContainer
           type="text"
           name={name}
@@ -12,7 +12,7 @@ export const InputComp = ({ title, name, value, onChange, placeholder }) => {
           onChange={onChange}
           placeholder={placeholder}
         ></S.InputContainer>
-      </S.textfield>
+      </S.Textfield>
     </label>
   );
 };

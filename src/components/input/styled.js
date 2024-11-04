@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const textfield = styled.div`
+export const Textfield = styled.div`
   display: flex;
   width: 303px;
   height: 83px;
@@ -9,7 +9,7 @@ export const textfield = styled.div`
   align-items: flex-start;
   gap: 3px;
 `;
-export const textTitle = styled.div`
+export const TextTitle = styled.div`
   display: flex;
   width: 100%;
   height: 30px;

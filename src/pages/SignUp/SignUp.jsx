@@ -1,35 +1,59 @@
 import * as S from "./styled";
+
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { signUpState } from "@atoms/signUpState";
+
+import { SIGN_UP_FIELDS } from "@constants/signUp";
 import { Layout } from "@components/common/layout/Layout";
 import { ProgressBar } from "@components/common/progressBar/ProgreesBar";
 import { Input } from "@components/input/Input";
 import { Button } from "@components/common/button/Button";
+
 import { usePageInfo } from "@hooks/usePageInfo";
-import { useNavigate } from "react-router-dom";
+import { useValidation } from "./_hooks/useValidation";
 
 export const SignUp = () => {
-  // TODO - Recoil로 데이터 연동
   const { page, nextPath } = usePageInfo();
+  const [signUpData, setSignUpData] = useRecoilState(signUpState);
   const navigate = useNavigate();
+
+  const { allFilled, validateField, resetValidation } = useValidation(page);
+
+  const handleInputChange = (field, value, index, fieldName) => {
+    validateField(index, value, fieldName);
+
+    setSignUpData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+  };
+  console.log(signUpData);
+  const handleNextClick = () => {
+    navigate(nextPath);
+    resetValidation(Number(page) + 1);
+  };
+
   return (
     <Layout $backgroundColor={"gray200"}>
       <S.SignUpWrapper>
         <S.TopWrapper>
           <ProgressBar title={"누구 생성하기"} $now={Number(page)} />
-          <Input
-            title={"아이디"}
-            placeholder={"아이디를 입력해 주세요. (20자 이내)"}
-          />
-          <Input
-            title={"비밀번호"}
-            placeholder={"비밀번호를 입력해 주세요. (8자 이상 16자 이내)"}
-          />
-          <Input
-            title={"비밀번호 확인"}
-            placeholder={"비밀번호를 다시 입력해 주세요."}
-          />
+          {SIGN_UP_FIELDS[Number(page) - 1].map((data, index) => (
+            <Input
+              title={data.title}
+              placeholder={data.placeholder}
+              key={index}
+              value={signUpData[data.name] || ""}
+              onChange={(e) =>
+                handleInputChange(data.name, e.target.value, index, data.name)
+              }
+              type={data.type}
+            />
+          ))}
         </S.TopWrapper>
 
-        <Button disabled={false} onClick={() => navigate(nextPath)}>
+        <Button disabled={!allFilled} onClick={handleNextClick}>
           다음
         </Button>
       </S.SignUpWrapper>

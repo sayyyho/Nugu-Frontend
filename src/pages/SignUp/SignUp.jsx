@@ -10,7 +10,7 @@ export const SignUp = () => {
     <Layout $backgroundColor={"gray200"}>
       <S.SignUpWrapper>
         <S.TopWrapper>
-          <ProgressBar title={"누구 생성하기"} />
+          <ProgressBar title={"누구 생성하기"} $now={4} />
           <Input
             title={"아이디"}
             placeholder={"아이디를 입력해 주세요. (20자 이내)"}
@@ -26,7 +26,7 @@ export const SignUp = () => {
         </S.TopWrapper>
 
         <Button disabled={false} onClick={() => console.log("click")}>
-          로그인
+          다음
         </Button>
       </S.SignUpWrapper>
     </Layout>

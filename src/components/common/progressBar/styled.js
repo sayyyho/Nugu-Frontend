@@ -19,3 +19,23 @@ export const Title = styled.div`
   ${({ theme }) => theme.fonts.pretendardB5}
   ${({ theme }) => theme.colors.gray500}
 `;
+
+export const ProgressWrapper = styled.div`
+  width: 100%;
+  height: 0.1875rem;
+  border-radius: 1.25rem;
+
+  display: flex;
+`;
+
+export const Progress = styled.div`
+  height: 100%;
+  width: ${({ $total, $now }) => `calc(${($now / $total) * 100}%)`};
+  background-color: ${({ theme }) => theme.colors.blue300};
+`;
+
+export const NonProgress = styled.div`
+  height: 100%;
+  width: ${({ $total, $now }) => `calc(${100 - ($now / $total) * 100}%)`};
+  background-color: ${({ theme }) => theme.colors.gray300};
+`;

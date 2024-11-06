@@ -35,18 +35,7 @@ html {
 	}
 }
 
-body {
-	width: 100%;
-	max-width: 540px;
-	overflow-x: hidden;
 
-	scrollbar-width: none; 
-	-ms-overflow-style: none;
-
-	::-webkit-scrollbar {
-    display: none;
-	}
-}
 
 *::-webkit-scrollbar {
   display: none;
@@ -98,8 +87,16 @@ html {
 
 body {
 	width: 100%;
-	max-width: 540px;
+	max-width: 430px;
 	overflow-x: hidden;
+
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+
+	::-webkit-scrollbar {
+    display: none;
+	}
+	
 	background-color: ${({ theme }) => theme.colors.white};
 	color: ${({ theme }) => theme.colors.default};
 	font-family: "CHAB", "Pretendard", sans-serif;

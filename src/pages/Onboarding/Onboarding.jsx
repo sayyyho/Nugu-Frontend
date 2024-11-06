@@ -9,7 +9,7 @@ import { Button } from "../../components/common/button/Button";
 export const Onboarding = () => {
   const navigate = useNavigate();
   const handleSignup = () => {
-    navigate("/signUp");
+    navigate("/signUp/1");
   };
 
   const handleLogin = () => {

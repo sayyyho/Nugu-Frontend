@@ -6,7 +6,7 @@ import { signUpState } from "@atoms/signUpState";
 
 import { SIGN_UP_FIELDS } from "@constants/signUp";
 import { Layout } from "@components/common/layout/Layout";
-import { ProgressBar } from "@components/common/progressBar/ProgreesBar";
+import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Input } from "@components/input/Input";
 import { Button } from "@components/common/button/Button";
 
@@ -30,7 +30,11 @@ export const SignUp = () => {
   };
   console.log(signUpData);
   const handleNextClick = () => {
-    navigate(nextPath);
+    if (Number(page) === 3) {
+      navigate("/signUp/submit");
+    } else {
+      navigate(nextPath);
+    }
     resetValidation(Number(page) + 1);
   };
 

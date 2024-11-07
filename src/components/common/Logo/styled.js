@@ -6,8 +6,7 @@ export const LogoContainer = styled.div`
   flex-direction: column;
   gap: 9px;
 `;
-export const title = styled.div`
+export const Title = styled.div`
   color: ${({ theme }) => theme.colors.blue300};
-  font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
-  font-size: 17px;
+  ${({ theme }) => theme.fonts.pretendardB5}
 `;

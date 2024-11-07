@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.colors.gray200};
   gap: 4rem;
   width: 100%;
-  height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   padding: 1rem 0;
 `;
 

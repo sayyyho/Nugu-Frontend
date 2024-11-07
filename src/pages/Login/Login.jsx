@@ -1,12 +1,12 @@
 import * as S from "./styled";
 import React, { useState } from "react";
-import { Logo } from "../../components/common/Logo/Logo";
-import { Button } from "../../components/common/button/button";
-import { InputComp } from "../../components/InputComp/InputComp";
+import { Logo } from "../../components/common/logo/Logo";
+import { Button } from "../../components/common/button/Button";
+import { Input } from "../../components/input/Input";
 import NuguLogo from "../../assets/small_logo.svg";
 import StarNugu from "../../assets/nugu-star.svg";
 
-export const LoginPage = () => {
+export const Login = () => {
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -29,14 +29,14 @@ export const LoginPage = () => {
       <S.imgWrapper>
         <img src={StarNugu} alt="starnugu" />
         <S.BtnContainer>
-          <InputComp
+          <Input
             title={"아이디"}
             name="username"
             value={form.username}
             onChange={handleChange}
             placeholder={"아이디를 입력해 주세요"}
           />
-          <InputComp
+          <Input
             title={"비밀번호"}
             name="password"
             value={form.password}

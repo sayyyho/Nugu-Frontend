@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import NuguLogo from "../../assets/Nugu_logo.svg";
 import Cloud from "../../assets/Cloud.svg";
 import StarNugu from "../../assets/nugu-star.svg";
-import { Logo } from "../../components/common/Logo/Logo";
-import { Button } from "../../components/common/button/button";
+import { Logo } from "../../components/common/logo/Logo";
+import { Button } from "../../components/common/button/Button";
 
-export const SignupPage = () => {
+export const Onboarding = () => {
   const navigate = useNavigate();
   const handleSignup = () => {
-    console.log("회원가입 페이지 이동");
+    navigate("/signUp/1");
   };
 
   const handleLogin = () => {

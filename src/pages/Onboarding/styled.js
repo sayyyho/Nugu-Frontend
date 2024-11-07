@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   background: linear-gradient(180deg, #d2deef 0%, #fff 100%);
   width: 100%;
-  height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   gap: 3rem;
   padding-bottom: 1rem;
 `;
@@ -26,7 +26,7 @@ export const BtnContainer = styled.div`
 
   #loginBtn {
     color: ${({ theme }) => theme.colors.blue300};
-    font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
-    font-size: 15px;
+    font-family: ${({ theme }) => theme.fonts.pretendardB3};
+    cursor: pointer;
   }
 `;

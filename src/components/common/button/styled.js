@@ -9,8 +9,7 @@ export const LoginBtn = styled.button`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 16px;
-  font-size: 17px;
-  font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
+  ${({ theme }) => theme.fonts.pretendardB5}
   background-color: ${({ disabled }) => (disabled ? "#d2deef" : "#3782ED")};
   color: ${({ disabled }) => (disabled ? "#ffffff" : "white")};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};

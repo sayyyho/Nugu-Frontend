@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const textfield = styled.div`
+export const Textfield = styled.div`
   display: flex;
   width: 303px;
   height: 83px;
@@ -9,7 +9,7 @@ export const textfield = styled.div`
   align-items: flex-start;
   gap: 3px;
 `;
-export const textTitle = styled.div`
+export const TextTitle = styled.div`
   display: flex;
   width: 100%;
   height: 30px;
@@ -17,9 +17,7 @@ export const textTitle = styled.div`
   justify-content: center;
   flex-shrink: 0;
   color: ${({ theme }) => theme.colors.blue300};
-  font-family: ${({ theme }) => theme.fonts.Pretendard["font-family"]};
-  font-size: 15px;
-  font-weight: 600;
+  ${({ theme }) => theme.fonts.pretendardB4}
 `;
 export const InputContainer = styled.input`
   display: flex;

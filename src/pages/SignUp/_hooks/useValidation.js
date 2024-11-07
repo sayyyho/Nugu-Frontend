@@ -3,7 +3,7 @@ import { SIGN_UP_FIELDS } from "@constants/signUp";
 
 export const useValidation = (page) => {
   const [fieldState, setFieldState] = useState(
-    Array.from({ length: SIGN_UP_FIELDS[page - 1].length }, () => false)
+    Array.from({ length: SIGN_UP_FIELDS[page - 1]?.length || 0 }, () => false)
   );
   const [allFilled, setAllFilled] = useState(false);
   const [values, setValues] = useState({});
@@ -28,7 +28,7 @@ export const useValidation = (page) => {
 
   const resetValidation = (nextPage) => {
     setFieldState(
-      Array.from({ length: SIGN_UP_FIELDS[nextPage - 1].length }, () => false)
+      Array.from({ length: SIGN_UP_FIELDS[nextPage]?.length || 0 }, () => false)
     );
     setValues({});
     setAllFilled(false);

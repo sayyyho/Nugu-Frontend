@@ -1,5 +1,9 @@
 import * as S from "./styled";
 
-export const Chip = ({ children, $backgroundColor = "white" }) => {
-  return <S.Chip $backgroundColor={$backgroundColor}>{children}</S.Chip>;
+export const Chip = ({ children, onClick, $backgroundColor }) => {
+  return (
+    <S.Chip $backgroundColor={$backgroundColor} onClick={onClick}>
+      {children}
+    </S.Chip>
+  );
 };

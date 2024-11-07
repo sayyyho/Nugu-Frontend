@@ -12,10 +12,10 @@ const fontGenerator = (
 export const theme = {
   colors: {
     //색상
+    blue100: "#eaeff8",
+    blue200: "#D2DEEF",
     blue300: "#3782ED", //메인
     blue400: "#2d6fcc",
-    blue200: "#d2deef",
-    blue100: "#eaeff8",
 
     red100: "#fee9e9",
     red200: "#ff0000",

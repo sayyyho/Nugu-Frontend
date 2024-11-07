@@ -1,7 +1,6 @@
 import * as S from "./styled";
 
-import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { signUpState } from "@atoms/signUpState";
 
 import { SIGN_UP_FIELDS } from "@constants/signUp";
@@ -12,31 +11,14 @@ import { Button } from "@components/common/button/Button";
 
 import { usePageInfo } from "@hooks/usePageInfo";
 import { useValidation } from "./_hooks/useValidation";
+import { useSignUp } from "./_hooks/useSignUp";
 
 export const SignUp = () => {
   const { page, nextPath } = usePageInfo();
-  const [signUpData, setSignUpData] = useRecoilState(signUpState);
-  const navigate = useNavigate();
+  const signUpData = useRecoilValue(signUpState);
 
   const { allFilled, validateField, resetValidation } = useValidation(page);
-
-  const handleInputChange = (field, value, index, fieldName) => {
-    validateField(index, value, fieldName);
-
-    setSignUpData((prevData) => ({
-      ...prevData,
-      [field]: value,
-    }));
-  };
-  console.log(signUpData);
-  const handleNextClick = () => {
-    if (Number(page) === 3) {
-      navigate("/signUp/submit");
-    } else {
-      navigate(nextPath);
-    }
-    resetValidation(Number(page) + 1);
-  };
+  const { handleInputChange, handleNextClick } = useSignUp(page);
 
   return (
     <Layout $backgroundColor={"gray200"}>
@@ -50,14 +32,23 @@ export const SignUp = () => {
               key={index}
               value={signUpData[data.name] || ""}
               onChange={(e) =>
-                handleInputChange(data.name, e.target.value, index, data.name)
+                handleInputChange(
+                  data.name,
+                  e.target.value,
+                  index,
+                  data.name,
+                  validateField
+                )
               }
               type={data.type}
             />
           ))}
         </S.TopWrapper>
 
-        <Button disabled={!allFilled} onClick={handleNextClick}>
+        <Button
+          disabled={!allFilled}
+          onClick={() => handleNextClick(resetValidation, nextPath)}
+        >
           다음
         </Button>
       </S.SignUpWrapper>

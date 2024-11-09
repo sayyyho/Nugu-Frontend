@@ -1,7 +1,7 @@
 import * as S from "./styled";
 
 import { Logo } from "@components/common/Logo/Logo";
-import { Button } from "@components/common/button/button";
+import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
 import { useForm } from "@hooks/useForm";
 import { LoginState } from "@atoms/LoginState";

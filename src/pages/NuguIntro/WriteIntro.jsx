@@ -3,7 +3,7 @@ import { Layout } from "@components/common/layout/Layout";
 import { theme } from "@styles/theme";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Input } from "@components/input/Input";
-import { Button } from "@components/common/button/button";
+import { Button } from "@components/common/button/Button";
 import { Chip } from "@components/chip/Chip";
 import { CHIP_DATA } from "@constants/chip";
 

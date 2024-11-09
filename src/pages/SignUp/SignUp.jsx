@@ -7,7 +7,7 @@ import { SIGN_UP_FIELDS } from "@constants/signUp";
 import { Layout } from "@components/common/layout/Layout";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Input } from "@components/input/Input";
-import { Button } from "@components/common/button/button";
+import { Button } from "@components/common/button/Button";
 
 import { usePageInfo } from "@hooks/usePageInfo";
 import { useValidation } from "./_hooks/useValidation";

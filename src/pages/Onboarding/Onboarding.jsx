@@ -1,10 +1,10 @@
 import * as S from "./styled";
 import { useNavigate } from "react-router-dom";
-import NuguLogo from "../../assets/Nugu_logo.svg";
-import Cloud from "../../assets/Cloud.svg";
-import StarNugu from "../../assets/nugu-star.svg";
-import { Logo } from "../../components/common/logo/Logo";
-import { Button } from "../../components/common/button/Button";
+import NuguLogo from "@/assets/Nugu_logo.svg";
+import Cloud from "@/assets/Cloud.svg";
+import StarNugu from "@/assets/nugu-star.svg";
+import { Logo } from "@/components/common/logo/Logo";
+import { Button } from "@/components/common/button/Button";
 
 export const Onboarding = () => {
   const navigate = useNavigate();

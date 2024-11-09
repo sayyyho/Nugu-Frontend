@@ -4,7 +4,7 @@ import { theme } from "@styles/theme";
 import { Layout } from "@components/common/layout/Layout";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Chip } from "@components/chip/Chip";
-import { Button } from "@components/common/button/Button";
+import { Button } from "@components/common/button/button";
 
 import { useChip } from "@pages/SignUp/_hooks/useChip";
 import { useSignUp } from "@pages/SignUp/_hooks/useSignUp";

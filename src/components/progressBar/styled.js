@@ -16,7 +16,7 @@ export const Title = styled.div`
   width: 100%;
   text-align: center;
 
-  ${({ theme }) => theme.fonts.pretendardB5}
+  ${({ theme }) => theme.fonts.pretendardB4}
   ${({ theme }) => theme.colors.gray500}
 `;
 

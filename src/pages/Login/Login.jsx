@@ -1,25 +1,16 @@
 import * as S from "./styled";
-import React, { useState } from "react";
-import { Logo } from "../../components/common/logo/Logo";
-import { Button } from "../../components/common/button/Button";
-import { Input } from "../../components/input/Input";
-import NuguLogo from "../../assets/small_logo.svg";
-import StarNugu from "../../assets/nugu-star.svg";
 
+import { Logo } from "@components/common/Logo/Logo";
+import { Button } from "@components/common/button/button";
+import { Input } from "@components/input/Input";
+import { useForm } from "@hooks/useForm";
+import { LoginState } from "@atoms/LoginState";
+
+import NuguLogo from "@assets/small_logo.svg";
+import StarNugu from "@assets/nugu-star.svg";
 export const Login = () => {
-  const [form, setForm] = useState({
-    username: "",
-    password: "",
-  });
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
-    console.log("Form Updated:", { ...form, [name]: value });
-  };
-  const isValid = form.username.trim() !== "" && form.password.trim() !== "";
+  const { form, handleChange, isValid } = useForm(LoginState);
+
   const handleLogin = () => {
     console.log("버튼눌림");
   };

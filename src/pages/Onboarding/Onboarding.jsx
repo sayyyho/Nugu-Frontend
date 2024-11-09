@@ -1,8 +1,8 @@
 import * as S from "./styled";
 import { useNavigate } from "react-router-dom";
-import NuguLogo from "@assets/Nugu_logo.svg";
-import Cloud from "@assets/Cloud.svg";
-import StarNugu from "@assets/nugu-star.svg";
+import NuguLogo from "/images/Nugu_logo.svg";
+import Cloud from "/images/Cloud.svg";
+import StarNugu from "/images/nugu-star.svg";
 import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 

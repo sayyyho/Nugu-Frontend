@@ -1,6 +1,6 @@
 import * as S from "./styled";
 import styled from "styled-components";
-import NUGU_CREATE_IMAGE from "@assets/NuguCreateImg.svg";
+import NUGU_CREATE_IMAGE from "/images/NuguCreateImg.svg";
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";

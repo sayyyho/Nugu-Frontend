@@ -25,9 +25,9 @@ export const WriteIntro = () => {
   };
   return (
     <Layout>
-      <S.introContainer>
+      <S.IntroContainer>
         <ProgressBar title={"누구 소개하기"} $now={4} />
-        <S.infoWrapper>
+        <S.InfoWrapper>
           <Input
             title={"누구를 소개하자면?"}
             name="content"
@@ -54,14 +54,14 @@ export const WriteIntro = () => {
               ))}
             </S.ChipWrapper>
           </S.TitleWrapper>
-        </S.infoWrapper>
+        </S.InfoWrapper>
         <Button
           disabled={selectedCount !== 3 || !isValid}
           onClick={handleSubmit}
         >
           저장하기
         </Button>
-      </S.introContainer>
+      </S.IntroContainer>
     </Layout>
   );
 };

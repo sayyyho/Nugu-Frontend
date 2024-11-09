@@ -1,11 +1,11 @@
 import * as S from "./styled";
 import { useNavigate } from "react-router-dom";
-import { NavigateBar } from "@components/common/NavigateBar/NavigateBar";
+import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
 import BlueCloud from "@assets/BlueCloud.svg";
-import { RankingBox } from "@components/Nuguintro/RankingBox/RankingBox";
+import { RankingBox } from "@components/rankingBox/RankingBox";
 import GointroIcon from "@assets/GointroIcon.svg";
 import Nuguhalf from "@assets/nugu-half.svg";
-import { IntroField } from "@components/Nuguintro/introField/introField";
+import { IntroField } from "@components/common/introField/IntroField";
 export const NuguIntroPage = () => {
   const navigate = useNavigate();
   const moveOnintro = () => {
@@ -15,19 +15,19 @@ export const NuguIntroPage = () => {
     <S.Wrapper>
       <NavigateBar />
       <img src={BlueCloud} />
-      <S.rankingWrapper>
+      <S.RankingWrapper>
         <RankingBox />
-        <S.GointroConT>
+        <S.GoIntroConT>
           <div id="gointro" onClick={() => moveOnintro()}>
             누구 소개하기
           </div>
           <img src={GointroIcon} />
-        </S.GointroConT>
-        <S.textFieldConT>
+        </S.GoIntroConT>
+        <S.TextFieldConT>
           <img src={Nuguhalf} />
           <IntroField></IntroField>
-        </S.textFieldConT>
-      </S.rankingWrapper>
+        </S.TextFieldConT>
+      </S.RankingWrapper>
     </S.Wrapper>
   );
 };

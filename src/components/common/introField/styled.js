@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const textContainer = styled.div`
+export const TextContainer = styled.div`
   display: flex;
   width: 304px;
   height: 132px;
@@ -17,7 +17,7 @@ export const textContainer = styled.div`
     color: ${({ theme }) => theme.colors.blue300};
   }
 `;
-export const textfield = styled.div`
+export const Textfield = styled.div`
   display: flex;
   width: 100%;
   height: 70px;

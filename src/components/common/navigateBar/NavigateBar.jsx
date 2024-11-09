@@ -13,7 +13,7 @@ export const NavigateBar = () => {
   return (
     <S.Container>
       {navigateTitle.map((item) => (
-        <S.navigateBox
+        <S.NavigateBox
           key={item.value}
           className={
             isActive(
@@ -25,7 +25,7 @@ export const NavigateBar = () => {
           onClick={() => handleMovePage(item.value)}
         >
           {item.title}
-        </S.navigateBox>
+        </S.NavigateBox>
       ))}
     </S.Container>
   );

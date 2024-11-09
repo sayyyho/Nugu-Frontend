@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
 `;
-export const rankingWrapper = styled.div`
+export const RankingWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -15,7 +15,7 @@ export const rankingWrapper = styled.div`
     color: ${({ theme }) => theme.colors.blue300};
   }
 `;
-export const GointroConT = styled.div`
+export const GoIntroConT = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2px;
@@ -27,7 +27,7 @@ export const GointroConT = styled.div`
     cursor: pointer;
   }
 `;
-export const textFieldConT = styled.div`
+export const TextFieldConT = styled.div`
   display: flex;
   flex-direction: column;
   width: 304px;
@@ -36,7 +36,7 @@ export const textFieldConT = styled.div`
 `;
 
 //writeIntro
-export const introContainer = styled.div`
+export const IntroContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -45,7 +45,7 @@ export const introContainer = styled.div`
   gap: 3rem;
 `;
 
-export const infoWrapper = styled.div`
+export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 304px;

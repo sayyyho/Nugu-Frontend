@@ -5,6 +5,7 @@ import { Login } from "./pages/Login/Login";
 import { Onboarding } from "./pages/Onboarding/Onboarding";
 import { SignUp } from "@pages/SignUp/SignUp";
 import { SignUpSubmit } from "@pages/SignUp/SignUpSubmit";
+import { NuguCreate } from "@pages/SignUp/NuguCreate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp/submit",
         element: <SignUpSubmit />,
+      },
+      {
+        path: "/signUp/create",
+        element: <NuguCreate />,
       },
     ],
   },

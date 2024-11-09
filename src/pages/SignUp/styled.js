@@ -49,3 +49,26 @@ export const ChipWrapper = styled.div`
 
   margin-top: 1rem;
 `;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+`;
+
+export const NuguMainText = styled.p`
+  ${({ theme }) => theme.fonts.lotteriaChabH1}
+  color: var(--blue300, #3782ED);
+  -webkit-text-stroke: 1px white;
+`;
+
+export const NuguSubText = styled.h1`
+  ${({ theme }) => theme.fonts.pretendardH1}
+  color: #3782ed;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+`;
+
+export const NuguCreateImg = styled.img`
+  height: 11rem;
+`;

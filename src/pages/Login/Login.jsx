@@ -1,10 +1,10 @@
 import * as S from "./styled";
 import React, { useState } from "react";
-import { Logo } from "../../components/common/logo/Logo";
-import { Button } from "../../components/common/button/Button";
-import { Input } from "../../components/input/Input";
-import NuguLogo from "../../assets/small_logo.svg";
-import StarNugu from "../../assets/nugu-star.svg";
+import { Logo } from "@components/common/logo/Logo";
+import { Button } from "@components/common/button/Button";
+import { Input } from "@components/input/Input";
+import NuguLogo from "/images/small_logo.svg";
+import StarNugu from "/images/nugu-star.svg";
 
 export const Login = () => {
   const [form, setForm] = useState({

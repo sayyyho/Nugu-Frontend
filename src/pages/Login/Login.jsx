@@ -1,13 +1,12 @@
 import * as S from "./styled";
 
-import { Logo } from "@components/common/Logo/Logo";
+import React, { useState } from "react";
+import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
-import { useForm } from "@hooks/useForm";
-import { LoginState } from "@atoms/LoginState";
+import NuguLogo from "/images/small_logo.svg";
+import StarNugu from "/images/nugu-star.svg";
 
-import NuguLogo from "@assets/small_logo.svg";
-import StarNugu from "@assets/nugu-star.svg";
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(LoginState);
 

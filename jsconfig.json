@@ -5,7 +5,6 @@
       "@assets/*": ["src/assets/*"],
       "@apis/*": ["src/apis/*"],
       "@atoms/*": ["src/atoms/*"],
-      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@constants/*": ["src/constants/*"],
       "@hooks/*": ["src/hooks/*"],

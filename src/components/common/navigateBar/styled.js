@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: space-between;
   background: ${({ theme }) => theme.colors.gray100};
 `;
-export const navigateBox = styled.div`
+export const NavigateBox = styled.div`
   display: flex;
   width: 120px;
   align-items: center;

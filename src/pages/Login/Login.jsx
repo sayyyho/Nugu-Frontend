@@ -7,8 +7,11 @@ import { Input } from "@components/input/Input";
 import NuguLogo from "/images/small_logo.svg";
 import StarNugu from "/images/nugu-star.svg";
 
+import { useForm } from "@hooks/useForm";
+import { loginState } from "@atoms/loginState";
+
 export const Login = () => {
-  const { form, handleChange, isValid } = useForm(LoginState);
+  const { form, handleChange, isValid } = useForm(loginState);
 
   const handleLogin = () => {
     console.log("버튼눌림");

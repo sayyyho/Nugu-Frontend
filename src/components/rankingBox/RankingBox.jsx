@@ -1,5 +1,4 @@
 import * as S from "./styled";
-
 export const RankingBox = () => {
   const rank = [2, 1, 3];
 

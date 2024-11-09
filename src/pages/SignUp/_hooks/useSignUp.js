@@ -27,7 +27,7 @@ export const useSignUp = (page) => {
 
   const handleSubmit = () => {
     console.log(signUpData);
-    console.log("TODO: API 연결하기");
+    navigate("/signUp/create");
   };
   return { handleInputChange, handleNextClick, handleSubmit };
 };

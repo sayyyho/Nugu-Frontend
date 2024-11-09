@@ -37,7 +37,7 @@ export const theme = {
     pretendardB4: fontGenerator("Pretendard", "0.9375rem", "600", "150%"),
     pretendardB5: fontGenerator("Pretendard", "1.0625rem", "400", "150%"),
 
-    pretendardH1: fontGenerator("Pretendard", "1.25rem", "900", "100%"),
+    pretendardH1: fontGenerator("Pretendard", "20px", "900", "100%"),
     pretendardH2: fontGenerator("Pretendard", "1.5625rem", "400", "140%"),
 
     lotteriaChabB1: fontGenerator("CHAB", "0.75rem", "400", "150%"),

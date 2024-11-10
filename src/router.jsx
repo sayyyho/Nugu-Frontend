@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
-import { Login } from "@pages/Login/Login";
+import { Login } from "@pages/login/Login";
 import { Onboarding } from "@pages/Onboarding/Onboarding";
 import { SignUp } from "@pages/SignUp/SignUp";
 import { SignUpSubmit } from "@pages/SignUp/SignUpSubmit";
-import { NuguIntroPage } from "@pages/NuguIntro/NuguIntro";
-import { WriteIntro } from "@pages/NuguIntro/WriteIntro";
+import { NuguIntroPage } from "@pages/nuguIntro/NuguIntro";
+import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
 import { NuguCreate } from "@pages/SignUp/NuguCreate";
 
 const router = createBrowserRouter([

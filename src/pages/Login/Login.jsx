@@ -19,7 +19,7 @@ export const Login = () => {
   return (
     <S.Wrapper>
       <Logo logo={NuguLogo} />
-      <S.imgWrapper>
+      <S.ImgWrapper>
         <img src={StarNugu} alt="starnugu" />
         <S.BtnContainer>
           <Input
@@ -40,7 +40,7 @@ export const Login = () => {
         <Button disabled={!isValid} onClick={handleLogin}>
           로그인
         </Button>
-      </S.imgWrapper>
+      </S.ImgWrapper>
     </S.Wrapper>
   );
 };

@@ -1,10 +1,10 @@
 import * as S from "./styled";
 import { useNavigate } from "react-router-dom";
 import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
-import BlueCloud from "@assets/BlueCloud.svg";
+import BlueCloud from "/images/BlueCloud.svg";
 import { RankingBox } from "@components/rankingBox/RankingBox";
-import GointroIcon from "@assets/GointroIcon.svg";
-import Nuguhalf from "@assets/nugu-half.svg";
+import GointroIcon from "/images/GointroIcon.svg";
+import Nuguhalf from "/images/nugu-half.svg";
 import { IntroField } from "@components/common/introField/IntroField";
 export const NuguIntroPage = () => {
   const navigate = useNavigate();

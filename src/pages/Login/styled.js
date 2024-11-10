@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   padding: 1rem 0;
 `;
 
-export const imgWrapper = styled.div`
+export const ImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

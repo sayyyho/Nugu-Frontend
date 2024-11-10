@@ -1,6 +1,6 @@
 import * as S from "./styled";
 import { useNavigate, useLocation } from "react-router-dom";
-import { navigateTitle } from "@constants/navigatebar";
+import { NAVIGATE_TITLE } from "@constants/navigateBar";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -12,7 +12,7 @@ export const NavigateBar = () => {
   console.log(isActive);
   return (
     <S.Container>
-      {navigateTitle.map((item) => (
+      {NAVIGATE_TITLE.map((item) => (
         <S.NavigateBox
           key={item.value}
           className={

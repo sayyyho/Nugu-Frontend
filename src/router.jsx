@@ -8,7 +8,7 @@ import { SignUpSubmit } from "@pages/SignUp/SignUpSubmit";
 import { NuguIntroPage } from "@pages/nuguIntro/NuguIntro";
 import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
 import { NuguCreate } from "@pages/SignUp/NuguCreate";
-
+import { NuguTestNonePage } from "@pages/nuguTest/NuguTestNone";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp/create",
         element: <NuguCreate />,
+      },
+      {
+        path: "/testnone",
+        element: <NuguTestNonePage />,
       },
     ],
   },

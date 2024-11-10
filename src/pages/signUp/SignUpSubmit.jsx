@@ -6,10 +6,9 @@ import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Chip } from "@components/chip/Chip";
 import { Button } from "@components/common/button/Button";
 
-import { useChip } from "@pages/SignUp/_hooks/useChip";
-import { useSignUp } from "@pages/SignUp/_hooks/useSignUp";
-
 import { CHIP_DATA } from "@constants/chip";
+import { useSignUp } from "./_hooks/useSignUp";
+import { useChip } from "./_hooks/useChip";
 
 export const SignUpSubmit = () => {
   const { selectedChip, handleClickStatus, selectedCount } = useChip();

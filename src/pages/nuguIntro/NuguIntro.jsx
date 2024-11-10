@@ -6,7 +6,7 @@ import { RankingBox } from "@components/rankingBox/RankingBox";
 import GointroIcon from "/images/GointroIcon.svg";
 import Nuguhalf from "/images/nugu-half.svg";
 import { IntroField } from "@components/common/introField/IntroField";
-export const NuguIntroPage = () => {
+export const NuguIntro = () => {
   const navigate = useNavigate();
   const moveOnintro = () => {
     navigate("/intro/write");

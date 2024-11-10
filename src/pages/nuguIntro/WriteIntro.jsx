@@ -7,7 +7,7 @@ import { Button } from "@components/common/button/Button";
 import { Chip } from "@components/chip/Chip";
 import { CHIP_DATA } from "@constants/chip";
 
-import { useChip } from "@pages/SignUp/_hooks/useChip";
+import { useChip } from "@pages/signUp/_hooks/useChip";
 import { useForm } from "@hooks/useForm";
 import { atom } from "recoil";
 import { useNavigate } from "react-router-dom";

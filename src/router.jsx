@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "./App";
+import { Onboarding } from "@pages/onBoarding/Onboarding";
 import { Login } from "@pages/login/Login";
-import { Onboarding } from "@pages/Onboarding/Onboarding";
-import { SignUp } from "@pages/SignUp/SignUp";
-import { SignUpSubmit } from "@pages/SignUp/SignUpSubmit";
-import { NuguIntroPage } from "@pages/nuguIntro/NuguIntro";
+import { SignUp } from "@pages/signUp/SignUp";
+import { SignUpSubmit } from "@pages/signUp/SignUpSubmit";
+import { NuguIntro } from "@pages/nuguIntro/NuguIntro";
 import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
-import { NuguCreate } from "@pages/SignUp/NuguCreate";
+import { NuguCreate } from "@pages/signUp/NuguCreate";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/intro",
-        element: <NuguIntroPage />,
+        element: <NuguIntro />,
       },
       {
         path: "/intro/write",

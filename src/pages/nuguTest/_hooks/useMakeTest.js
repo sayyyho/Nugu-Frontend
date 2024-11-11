@@ -8,28 +8,35 @@ export const useMakeNuguTest = () => {
   const navigate = useNavigate();
   const [isMakeTest, setIsMakeTest] = useRecoilState(isMakeTestOwner);
 
-  // 상태 관리
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(
+    Array(TEST_QUESTION.length).fill(null)
+  );
+  //TEST_QUESTION 길이와 같은 배열 만들기 위함입니다.
   const [answerHistory, setAnswerHistory] = useState([]);
 
   const handleAnswerSelect = (answer) => {
-    setSelectedAnswer(answer);
+    setSelectedAnswer((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[currentQuestion] = answer;
+      return updatedAnswers;
+    });
   };
 
   const handleNextQuestion = () => {
     if (currentQuestion < TEST_QUESTION.length - 1) {
-      setAnswerHistory((prevHistory) => [...prevHistory, selectedAnswer]);
+      setAnswerHistory((prevHistory) => [
+        ...prevHistory,
+        selectedAnswer[currentQuestion],
+      ]);
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
     } else {
-      console.log("선택된 답들: ", answerHistory);
+      console.log("소유자가 선택한 답들: ", answerHistory);
       setIsMakeTest(true);
     }
   };
 
   useEffect(() => {
-    console.log("isMakeTest: ", isMakeTest); // 상태 변경 확인
     if (isMakeTest) {
       navigate("/test");
     }

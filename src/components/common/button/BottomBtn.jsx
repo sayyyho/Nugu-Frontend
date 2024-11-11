@@ -1,6 +1,6 @@
 import * as S from "./styled";
 
-export const Button = ({ disabled, onClick, children }) => {
+export const BottomBtn = ({ disabled, onClick, children }) => {
   return (
     <S.BottomBtn disabled={disabled} onClick={onClick}>
       {children}

@@ -43,12 +43,26 @@ export const AnswerBox = styled.div`
   align-self: stretch;
   border-radius: 15px;
   ${({ theme }) => theme.fonts.pretendardB4}
-  box-shadow: ${({ isSelected }) =>
-    isSelected ? "0px 0px 10px 0px rgba(55, 130, 237, 0.50)" : "none"};
+  box-shadow: ${({ $isSelected, $isAnswer }) =>
+    $isSelected
+      ? $isAnswer
+        ? "0px 0px 10px 0px rgba(55, 130, 237, 0.50)"
+        : "0px 0px 10px 0px rgba(255, 0, 0, 0.50)"
+      : "none"};
 
-  border: 1px solid ${({ theme }) => theme.colors.blue300};
-  background: ${({ theme, isSelected }) =>
-    isSelected ? theme.colors.blue100 : theme.colors.gray100};
+  border: 1px solid
+    ${({ theme, $isSelected, $isAnswer }) =>
+      $isSelected
+        ? $isAnswer
+          ? theme.colors.blue300
+          : theme.colors.red200
+        : theme.colors.blue300};
+  background: ${({ theme, $isSelected, $isAnswer }) =>
+    $isSelected
+      ? $isAnswer
+        ? theme.colors.blue100
+        : theme.colors.red100
+      : theme.colors.gray100};
 `;
 //challenge
 export const NichNameCase = styled.input`
@@ -60,15 +74,14 @@ export const NichNameCase = styled.input`
   justify-content: center;
   align-items: center;
   gap: 6px;
-  flex-shrink: 0;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray500};
   background: ${({ theme }) => theme.colors.gray200};
-  padding-left: 4rem;
+  outline: none;
+  text-align: center;
 
-  ::placeholder {
-    text-align: center;
-    color: ${({ theme }) => theme.colors.gray400};
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.gray400} !important;
     ${({ theme }) => theme.fonts.pretendardB3}
   }
 `;

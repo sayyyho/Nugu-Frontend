@@ -18,9 +18,8 @@ export const BottomBtn = styled.button`
   height: 75px;
   width: 100%;
   max-width: 430px;
-  padding: 24px 148px;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 10px;
   flex-shrink: 0;
   position: fixed;

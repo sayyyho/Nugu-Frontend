@@ -1,3 +1,4 @@
+//누구 소개 랭킹 컴포넌트
 import * as S from "./styled";
 export const RankingBox = () => {
   const rank = [2, 1, 3];

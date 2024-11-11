@@ -47,6 +47,7 @@ const router = createBrowserRouter([
         element: <NuguCreate />,
       },
       {
+        //소유자뷰 누구테스트흄
         path: "/test",
         element: <NuguTestPage />,
       },
@@ -55,12 +56,12 @@ const router = createBrowserRouter([
         element: <MakeNuguTest />,
       },
       {
-        //수정예정
+        //접속자뷰 누구테스트홈
         path: "/challenge",
         element: <NuguChallenge />,
       },
       {
-        //수정예정
+        //
         path: "/challenge/test",
         element: <ChallengerTest />,
       },

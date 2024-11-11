@@ -75,3 +75,52 @@ export const TestRank = styled.div`
   justify-content: center;
   gap: 20px;
 `;
+//CompleteTest
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+`;
+export const CompleteText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  ${({ theme }) => theme.fonts.lotteriaChabH2};
+  color: ${({ theme }) => theme.colors.blue300};
+`;
+export const RankingBox = styled.div`
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: ${({ theme }) => theme.colors.blue100};
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
+  gap: 18px;
+`;
+export const RankingTitle = styled.div`
+  display: flex;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.gray100};
+  ${({ theme }) => theme.fonts.lotteriaChabB3};
+  -webkit-text-stroke-color: #3782ed;
+  -webkit-text-stroke-width: 1px;
+  text-shadow: 0px 2px 5px rgba(55, 130, 237, 0.5);
+`;
+export const TotalRankingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+
+  gap: 20px;
+`;

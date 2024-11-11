@@ -4,8 +4,24 @@ import { NAVIGATE_TITLE } from "@constants/navigateBar";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isTokenAvailable = false;
   const handleMovePage = (value) => {
-    navigate(value === 1 ? "/login" : value === 2 ? "/intro" : "/test");
+    let path;
+    switch (value) {
+      case 1:
+        path = isTokenAvailable ? "/login" : "/login";
+        break;
+      case 2:
+        path = "/intro";
+        break;
+      case 3:
+        path = isTokenAvailable ? "/test" : "/challenge";
+        break;
+      default:
+        path = "/";
+        break;
+    }
+    navigate(path);
   };
 
   const isActive = (path) => location.pathname === path;
@@ -18,10 +34,16 @@ export const NavigateBar = () => {
           className={
             isActive(
               item.value === 1
-                ? "/login"
+                ? isTokenAvailable
+                  ? "/dashboard"
+                  : "/login"
                 : item.value === 2
-                ? "/intro"
-                : "/test"
+                ? isTokenAvailable
+                  ? "/intro"
+                  : "/intro"
+                : isTokenAvailable
+                ? "/test"
+                : "/challenge"
             )
               ? "active"
               : ""

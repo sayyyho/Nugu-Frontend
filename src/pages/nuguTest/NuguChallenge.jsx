@@ -1,3 +1,5 @@
+//접속자 뷰- 누구테스트 홈
+
 import * as S from "./styled";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "@components/common/layout/Layout";
@@ -5,14 +7,12 @@ import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
 import { NuguTestNone } from "@components/nuguTest/NuguTestNone";
 import { NuguTestHome } from "@components/nuguTest/NuguTestHome";
 import { Button } from "@components/common/button/Button";
-import { isMakeTestOwner } from "@atoms/nuguTestState";
-import { useRecoilValue } from "recoil";
-//접속자 누구테스트 홈뷰
+
 export const NuguChallenge = () => {
   const navigate = useNavigate();
   const isTestMake = true;
   const moveOnTest = () => {
-    navigate("/");
+    navigate("/challenge/test");
   };
   return (
     <Layout>

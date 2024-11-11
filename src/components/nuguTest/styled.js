@@ -7,6 +7,7 @@ export const TestContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
 `;
 
 export const FirstTextWrapper = styled.div`
@@ -46,4 +47,31 @@ export const HomeSubTextTitle = styled.div`
   display: flex;
   ${({ theme }) => theme.fonts.pretendardB3};
   color: ${({ theme }) => theme.colors.gray400};
+`;
+//True
+
+export const UserRankWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  margin-top: 2rem;
+`;
+export const UserTextWrapper = styled.div`
+  display: flex;
+  width: 218px;
+  flex-direction: column;
+  align-items: center;
+  gap: -10px;
+  ${({ theme }) => theme.fonts.lotteriaChabH2};
+  color: ${({ theme }) => theme.colors.blue300};
+`;
+export const TestRank = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 `;

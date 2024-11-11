@@ -1,5 +1,5 @@
 export const NONE_TEXTS = {
-  emptyArray: {
+  ownerView: {
     title: "누구테스트",
     subtitle: ["를", "응시한 친구가 없어요!"],
     subtext: [
@@ -7,17 +7,24 @@ export const NONE_TEXTS = {
       "친구들이 나에 대해서 얼마나 알고 있는지 확인해봐요!",
     ],
   },
-  nonEmptyArray: {
+  nonOwnerView: {
     title: "누구테스트",
     subtitle: ["가", "아직 만들어지지 않았어요!"],
     subtext: ["누구테스트를 만들어달라고", "살짝 제안해보는 건 어떨까요?"],
   },
 };
 
-export const HOME_TEXT = [
-  "누구 테스트를 만들어 친구에게 나를 소개하고,",
-  "나를 가장 잘 아는 친구들을 알아내봐요!",
-];
+export const HOME_TEXT = {
+  Owner: {
+    text: [
+      "누구 테스트를 만들어 친구에게 나를 소개하고,",
+      "나를 가장 잘 아는 친구들을 알아내봐요!",
+    ],
+  },
+  Challenger: {
+    text: ["누구 테스트를 통해 친구를 더 알아가요!", "1등에 도전해볼까요?"],
+  },
+};
 export const TEST_QUESTION = [
   { Num: 1, Question: "탕수육은 역시", Ans: ["부먹이지", "찍먹이지"] },
   {

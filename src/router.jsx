@@ -11,7 +11,8 @@ import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
 import { NuguCreate } from "@pages/SignUp/NuguCreate";
 import { NuguTestPage } from "@pages/nuguTest/NuguTest";
 import { MakeNuguTest } from "@pages/nuguTest/MakeNuguTest";
-
+import { NuguChallenge } from "@pages/nuguTest/NuguChallenge";
+import { ChallengerTest } from "@pages/nuguTest/ChallengerTest";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,8 +51,18 @@ const router = createBrowserRouter([
         element: <NuguTestPage />,
       },
       {
-        path: "/maketest",
+        path: "/test/make",
         element: <MakeNuguTest />,
+      },
+      {
+        //수정예정
+        path: "/challenge",
+        element: <NuguChallenge />,
+      },
+      {
+        //수정예정
+        path: "/challenge/test",
+        element: <ChallengerTest />,
       },
     ],
   },

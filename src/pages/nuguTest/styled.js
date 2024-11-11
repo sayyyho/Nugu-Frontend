@@ -6,12 +6,23 @@ export const TestContainer = styled.div`
   align-items: center;
   height: 100vh;
   gap: 2rem;
+  margin-top: 1rem;
 `;
+//makeTest
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+`;
+
 export const TestQuestionWrapper = styled.div`
   display: flex;
   width: 350px;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 2rem;
   justify-content: center;
   gap: 7px;
   align-items: center;
@@ -38,4 +49,26 @@ export const AnswerBox = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.blue300};
   background: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.blue100 : theme.colors.gray100};
+`;
+//challenge
+export const NichNameCase = styled.input`
+  display: flex;
+  width: 250px;
+  height: 40px;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray500};
+  background: ${({ theme }) => theme.colors.gray200};
+  padding-left: 4rem;
+
+  ::placeholder {
+    text-align: center;
+    color: ${({ theme }) => theme.colors.gray400};
+    ${({ theme }) => theme.fonts.pretendardB3}
+  }
 `;

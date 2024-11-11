@@ -1,9 +1,16 @@
 import * as S from "./styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { TEST_QUESTION } from "@constants/nuguTest";
 import { BottomBtn } from "@components/common/button/styled";
+import { isMakeTestOwner } from "@atoms/nuguTestState";
+import { useRecoilState } from "recoil";
 export const MakeNuguTest = () => {
+  const navigate = useNavigate();
+  const [isMakeTest, setIsMakeTest] = useRecoilState(isMakeTestOwner);
+
+  //훅 정리 필요
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [answerHistory, setAnswerHistory] = useState([]);
@@ -17,11 +24,17 @@ export const MakeNuguTest = () => {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
     } else {
-      console.log("테스트가 완료되었습니다!");
       console.log("선택된 답들: ", answerHistory);
+      setIsMakeTest(true);
     }
   };
 
+  useEffect(() => {
+    console.log("isMakeTest: ", isMakeTest); // 상태 변경 확인
+    if (isMakeTest) {
+      navigate("/test");
+    }
+  }, [isMakeTest, navigate]);
   return (
     <>
       <ProgressBar
@@ -29,7 +42,7 @@ export const MakeNuguTest = () => {
         $now={currentQuestion + 1}
         $total={10}
       />
-      <S.TestContainer>
+      <S.Container>
         <S.TestQuestionWrapper>
           <div>{TEST_QUESTION[currentQuestion].Num}/10</div>
           <div>{TEST_QUESTION[currentQuestion].Question}</div>
@@ -51,7 +64,7 @@ export const MakeNuguTest = () => {
         >
           {TEST_QUESTION[currentQuestion].Num === 10 ? "완료하기" : "다음으로"}
         </BottomBtn>
-      </S.TestContainer>
+      </S.Container>
     </>
   );
 };

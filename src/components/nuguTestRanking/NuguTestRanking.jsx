@@ -17,7 +17,9 @@ export const NuguTestRanking = ({ ranking }) => {
           <S.Rank>{index + 1}</S.Rank>
           <S.RankImg src={getRankImage(index + 1)} />
           <S.NickName>{user.nickname}</S.NickName>
-          <S.MyRank>{user.result}/10</S.MyRank>
+          <S.MyRank>
+            {user.rank}/{user.totalParticipants}
+          </S.MyRank>
         </S.Wrapper>
       ))}
     </>

@@ -26,7 +26,7 @@ export const WriteIntro = () => {
   return (
     <Layout>
       <S.IntroContainer>
-        <ProgressBar title={"누구 소개하기"} $now={4} />
+        <ProgressBar title={"누구 소개하기"} $now={4} $total={4} />
         <S.InfoWrapper>
           <Input
             title={"누구를 소개하자면?"}

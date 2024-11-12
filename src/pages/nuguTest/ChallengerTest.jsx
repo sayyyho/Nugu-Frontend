@@ -50,7 +50,7 @@ export const ChallengerTest = () => {
         $now={currentQuestion + 1}
         $total={10}
       />
-      <S.Container>
+      <S.ChallengeContainer>
         {isChallenge ? ( //3명 랭킹 보여주는 화면
           isCheckTotalRanking ? (
             <TestRanking
@@ -74,7 +74,7 @@ export const ChallengerTest = () => {
             isAnswerSelected={isAnswerSelected}
           />
         )}
-      </S.Container>
+      </S.ChallengeContainer>
     </>
   );
 };

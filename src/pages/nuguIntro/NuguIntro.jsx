@@ -6,6 +6,7 @@ import { RankingBox } from "@components/rankingBox/RankingBox";
 import GointroIcon from "/images/GointroIcon.svg";
 import Nuguhalf from "/images/nugu-half.svg";
 import { IntroField } from "@components/common/introField/IntroField";
+import { Layout } from "@components/common/layout/Layout";
 export const NuguIntro = () => {
   const navigate = useNavigate();
   const rank = [
@@ -23,22 +24,24 @@ export const NuguIntro = () => {
     navigate("/intro/write");
   };
   return (
-    <S.Wrapper>
-      <NavigateBar />
-      <img src={BlueCloud} />
-      <S.RankingWrapper>
-        <RankingBox NuguIntroRank={rank} />
-        <S.GoIntroConT>
-          <div id="gointro" onClick={() => moveOnintro()}>
-            누구 소개하기
-          </div>
-          <img src={GointroIcon} />
-        </S.GoIntroConT>
-        <S.TextFieldConT>
-          <img src={Nuguhalf} />
-          <IntroField isNuguIntro={isNuguIntro} />
-        </S.TextFieldConT>
-      </S.RankingWrapper>
-    </S.Wrapper>
+    <Layout $margin="4rem 0 0 0" $justifyContent="start">
+      <S.Wrapper>
+        <NavigateBar />
+        <img src={BlueCloud} />
+        <S.RankingWrapper>
+          <RankingBox NuguIntroRank={rank} />
+          <S.GoIntroConT>
+            <div id="gointro" onClick={() => moveOnintro()}>
+              누구 소개하기
+            </div>
+            <img src={GointroIcon} />
+          </S.GoIntroConT>
+          <S.TextFieldConT>
+            <img src={Nuguhalf} />
+            <IntroField isNuguIntro={isNuguIntro} />
+          </S.TextFieldConT>
+        </S.RankingWrapper>
+      </S.Wrapper>
+    </Layout>
   );
 };

@@ -15,7 +15,7 @@ export const NuguChallenge = () => {
     navigate("/challenge/test");
   };
   return (
-    <Layout>
+    <Layout $margin="3rem 0 0 0" $justifyContent="start">
       <NavigateBar />
       <S.TestContainer>
         {isTestMake ? (

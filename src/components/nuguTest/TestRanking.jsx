@@ -19,9 +19,9 @@ export const TestRanking = ({
         <S.CompleteText>{username}의</S.CompleteText>
         <S.CompleteText>누구 테스트 순위</S.CompleteText>
         <S.SubTextWrapper>
-          <S.SubTextTitle>
+          <S.ChallengerScore>
             내 점수:{correctAnswers}/10 ({rank}위)
-          </S.SubTextTitle>
+          </S.ChallengerScore>
         </S.SubTextWrapper>
       </S.TitleWrapper>
       <S.TotalRankingContainer>

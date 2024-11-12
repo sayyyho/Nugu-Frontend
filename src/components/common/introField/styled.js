@@ -7,6 +7,7 @@ export const TextContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  margin-bottom: 1rem;
   border-radius: 10.168px;
   border: 1px solid ${({ theme }) => theme.colors.blue200};
   background: ${({ theme }) => theme.colors.gray100};

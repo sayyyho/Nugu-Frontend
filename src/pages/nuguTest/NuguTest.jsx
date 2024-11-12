@@ -19,6 +19,7 @@ export const NuguTestPage = () => {
     const fetchTestStatus = async () => {
       try {
         const hasTest = false;
+        //누구 테스트 사용자-get
         setIsMakeTest(hasTest);
       } catch (error) {
         console.error("실패", error);
@@ -33,24 +34,24 @@ export const NuguTestPage = () => {
   };
 
   const array = [
-    {
-      nickname: "응시자3",
-      correctAnswers: 9,
-      rank: 1,
-      totalParticipants: 3,
-    },
-    {
-      nickname: "응시자1",
-      correctAnswers: 7,
-      rank: 2,
-      totalParticipants: 3,
-    },
-    {
-      nickname: "응시자2",
-      correctAnswers: 7,
-      rank: 2,
-      totalParticipants: 3,
-    },
+    // {
+    //   nickname: "응시자3",
+    //   correctAnswers: 9,
+    //   rank: 1,
+    //   totalParticipants: 3,
+    // },
+    // {
+    //   nickname: "응시자1",
+    //   correctAnswers: 7,
+    //   rank: 2,
+    //   totalParticipants: 3,
+    // },
+    // {
+    //   nickname: "응시자2",
+    //   correctAnswers: 7,
+    //   rank: 2,
+    //   totalParticipants: 3,
+    // },
   ];
 
   return (

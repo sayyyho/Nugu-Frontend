@@ -23,7 +23,6 @@ export const NavigateBar = () => {
     }
     navigate(path);
   };
-
   const isActive = (path) => location.pathname === path;
   console.log(isActive);
   return (

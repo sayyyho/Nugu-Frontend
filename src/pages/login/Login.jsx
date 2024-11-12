@@ -37,6 +37,7 @@ export const Login = () => {
             value={form.password}
             onChange={handleChange}
             placeholder={"비밀번호를 입력해 주세요"}
+            type="password"
           />
         </S.BtnContainer>
         <Button disabled={!isValid} onClick={handleLogin}>

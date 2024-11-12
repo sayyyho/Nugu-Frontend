@@ -4,7 +4,7 @@ import { NAVIGATE_TITLE } from "@constants/navigatebar";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isTokenAvailable = false;
+  const isTokenAvailable = true;
   const handleMovePage = (value) => {
     let path;
     switch (value) {

@@ -1,26 +1,27 @@
 import * as S from "./styled";
-
-import React, { useState } from "react";
+import React from "react";
 import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
-import NuguLogo from "/images/small_logo.svg";
-import StarNugu from "/images/nugu-star.svg";
-
 import { useForm } from "@hooks/useForm";
 import { loginState } from "@atoms/loginState";
+import { postLogin } from "@apis/login";
+import NuguLogo from "/images/SmallLogo.png";
+import StarNugu from "/images/StarNugu.png";
 
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
 
-  const handleLogin = () => {
-    console.log("버튼눌림");
+  const handleLogin = async () => {
+    console.log(form);
+    await postLogin(form);
   };
+
   return (
     <S.Wrapper>
       <Logo logo={NuguLogo} />
       <S.ImgWrapper>
-        <img src={StarNugu} alt="starnugu" />
+        <img src={StarNugu} alt="starnugu" loading="lazy" />
         <S.BtnContainer>
           <Input
             title={"아이디"}

@@ -5,9 +5,8 @@ export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const handleMovePage = (value) => {
-    navigate(value === 1 ? "/login" : value === 2 ? "/intro" : "/");
+    navigate(value === 1 ? "/nugu/admin" : value === 2 ? "/intro" : "/");
   };
-
   const isActive = (path) => location.pathname === path;
   console.log(isActive);
   return (
@@ -17,7 +16,11 @@ export const NavigateBar = () => {
           key={item.value}
           className={
             isActive(
-              item.value === 1 ? "/login" : item.value === 2 ? "/intro" : "/"
+              item.value === 1
+                ? "/nugu/admin"
+                : item.value === 2
+                ? "/intro"
+                : "/"
             )
               ? "active"
               : ""

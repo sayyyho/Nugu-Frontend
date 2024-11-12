@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: row;
   width: 100%;
   max-width: 430px;
-  height: 49px;
+  height: 3rem;
   align-items: center;
   justify-content: space-between;
   background: ${({ theme }) => theme.colors.gray100};

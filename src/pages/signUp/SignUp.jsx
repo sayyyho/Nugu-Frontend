@@ -24,7 +24,7 @@ export const SignUp = () => {
     <Layout $backgroundColor={"gray200"}>
       <S.SignUpWrapper>
         <S.TopWrapper>
-          <ProgressBar title={"누구 생성하기"} $now={Number(page)} />
+          <ProgressBar title={"누구 생성하기"} $now={Number(page)} $total={4} />
           {SIGN_UP_FIELDS[Number(page) - 1].map((data, index) => (
             <Input
               title={data.title}

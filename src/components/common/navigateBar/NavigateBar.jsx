@@ -1,26 +1,48 @@
 import * as S from "./styled";
 import { useNavigate, useLocation } from "react-router-dom";
-import { navigateTitle } from "@constants/navigatebar";
+import { NAVIGATE_TITLE } from "@constants/navigatebar";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isTokenAvailable = false;
   const handleMovePage = (value) => {
-    navigate(value === 1 ? "/nugu/admin" : value === 2 ? "/intro" : "/");
+    let path;
+    switch (value) {
+      case 1:
+        path = isTokenAvailable ? "/login" : "/login";
+        break;
+      case 2:
+        path = "/intro";
+        break;
+      case 3:
+        path = isTokenAvailable ? "/test" : "/challenge";
+        break;
+      default:
+        path = "/";
+        break;
+    }
+    navigate(path);
   };
   const isActive = (path) => location.pathname === path;
   console.log(isActive);
   return (
     <S.Container>
-      {navigateTitle.map((item) => (
+      {NAVIGATE_TITLE.map((item) => (
         <S.NavigateBox
           key={item.value}
           className={
             isActive(
               item.value === 1
-                ? "/nugu/admin"
+                ? isTokenAvailable
+                  ? "/dashboard"
+                  : "/login"
                 : item.value === 2
-                ? "/intro"
-                : "/"
+                ? isTokenAvailable
+                  ? "/intro"
+                  : "/intro"
+                : isTokenAvailable
+                ? "/test"
+                : "/challenge"
             )
               ? "active"
               : ""

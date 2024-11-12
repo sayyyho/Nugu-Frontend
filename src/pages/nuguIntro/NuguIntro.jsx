@@ -8,6 +8,17 @@ import Nuguhalf from "/images/nugu-half.svg";
 import { IntroField } from "@components/common/introField/IntroField";
 export const NuguIntro = () => {
   const navigate = useNavigate();
+  const rank = [
+    {
+      keyword1: "순수한",
+      keyword2: "관대한",
+      keyword3: "다정한",
+      intro_list: ["착한 친구입니다.", "재밌는 친구입니다~"],
+    },
+  ];
+  //누구 소개-사용자get
+  const isNuguIntro = rank && rank.length > 0 ? rank[0] : null;
+
   const moveOnintro = () => {
     navigate("/intro/write");
   };
@@ -16,7 +27,7 @@ export const NuguIntro = () => {
       <NavigateBar />
       <img src={BlueCloud} />
       <S.RankingWrapper>
-        <RankingBox />
+        <RankingBox NuguIntroRank={rank} />
         <S.GoIntroConT>
           <div id="gointro" onClick={() => moveOnintro()}>
             누구 소개하기
@@ -25,7 +36,7 @@ export const NuguIntro = () => {
         </S.GoIntroConT>
         <S.TextFieldConT>
           <img src={Nuguhalf} />
-          <IntroField></IntroField>
+          <IntroField isNuguIntro={isNuguIntro} />
         </S.TextFieldConT>
       </S.RankingWrapper>
     </S.Wrapper>

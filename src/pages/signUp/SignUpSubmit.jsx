@@ -17,7 +17,7 @@ export const SignUpSubmit = () => {
     <Layout $backgroundColor={"gray200"}>
       <S.SignUpWrapper>
         <S.TopWrapper>
-          <ProgressBar title={"누구 생성하기"} $now={4} />
+          <ProgressBar title={"누구 생성하기"} $now={4} $total={4} />
           <S.TitleWrapper>
             <S.Title>나를 표현하는 키워드</S.Title>
             <S.SubTitle>나와 어울리는 키워드 3개를 선택해주세요</S.SubTitle>

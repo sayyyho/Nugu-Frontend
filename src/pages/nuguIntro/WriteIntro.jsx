@@ -1,5 +1,4 @@
 import * as S from "./styled";
-import { Layout } from "@components/common/layout/Layout";
 import { theme } from "@styles/theme";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { Input } from "@components/input/Input";
@@ -24,44 +23,39 @@ export const WriteIntro = () => {
     navigate("/intro");
   };
   return (
-    <Layout>
-      <S.IntroContainer>
-        <ProgressBar title={"누구 소개하기"} $now={4} />
-        <S.InfoWrapper>
-          <Input
-            title={"누구를 소개하자면?"}
-            name="content"
-            placeholder={"누구 소개를 입력해 주세요 (150자 이내)"}
-            value={form.content}
-            onChange={handleChange}
-          />
+    <S.IntroContainer>
+      <ProgressBar title={"누구 소개하기"} $now={4} $total={4} />
+      <S.InfoWrapper>
+        <Input
+          title={"누구를 소개하자면?"}
+          name="content"
+          placeholder={"누구 소개를 입력해 주세요 (150자 이내)"}
+          value={form.content}
+          onChange={handleChange}
+        />
 
-          <S.TitleWrapper>
-            <S.Title>나를 표현하는 키워드</S.Title>
-            <S.SubTitle>나와 어울리는 키워드 3개를 선택해주세요</S.SubTitle>
-            <S.ChipWrapper>
-              {CHIP_DATA.map((text, index) => (
-                <Chip
-                  key={index}
-                  $index={index}
-                  onClick={() => handleClickStatus(index)}
-                  $backgroundColor={
-                    selectedChip[index] ? theme.colors.blue200 : "white"
-                  }
-                >
-                  {text}
-                </Chip>
-              ))}
-            </S.ChipWrapper>
-          </S.TitleWrapper>
-        </S.InfoWrapper>
-        <Button
-          disabled={selectedCount !== 3 || !isValid}
-          onClick={handleSubmit}
-        >
-          저장하기
-        </Button>
-      </S.IntroContainer>
-    </Layout>
+        <S.TitleWrapper>
+          <S.Title>나를 표현하는 키워드</S.Title>
+          <S.SubTitle>나와 어울리는 키워드 3개를 선택해주세요</S.SubTitle>
+          <S.ChipWrapper>
+            {CHIP_DATA.map((text, index) => (
+              <Chip
+                key={index}
+                $index={index}
+                onClick={() => handleClickStatus(index)}
+                $backgroundColor={
+                  selectedChip[index] ? theme.colors.blue200 : "white"
+                }
+              >
+                {text}
+              </Chip>
+            ))}
+          </S.ChipWrapper>
+        </S.TitleWrapper>
+      </S.InfoWrapper>
+      <Button disabled={selectedCount !== 3 || !isValid} onClick={handleSubmit}>
+        저장하기
+      </Button>
+    </S.IntroContainer>
   );
 };

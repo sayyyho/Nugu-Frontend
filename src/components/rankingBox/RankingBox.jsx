@@ -1,16 +1,21 @@
 //누구 소개 랭킹 컴포넌트
 import * as S from "./styled";
-export const RankingBox = () => {
+export const RankingBox = ({ NuguIntroRank }) => {
   const rank = [2, 1, 3];
-
+  const isNuguIntroRank =
+    NuguIntroRank && NuguIntroRank.length > 0 ? NuguIntroRank[0] : null;
   return (
     <S.RankingContainer>
       {rank.map((item) => {
+        const keyword = isNuguIntroRank
+          ? isNuguIntroRank[`keyword${item}`]
+          : "키워드";
+
         return (
           <S.RankingBox key={item}>
             <div id="rank">{item}</div>
-            <div id="keyword">키워드</div>
-            <S.Rankstyled boxHeight={item} />
+            <div id="keyword">{keyword}</div>
+            <S.Rankstyled $boxHeight={item} />
           </S.RankingBox>
         );
       })}

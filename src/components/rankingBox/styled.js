@@ -29,6 +29,6 @@ export const Rankstyled = styled.div`
   gap: 2px;
   border-radius: 10px 10px 0px 0px;
   background: ${({ theme }) => theme.colors.blue200};
-  height: ${({ boxHeight }) =>
-    boxHeight === 1 ? "130px" : boxHeight === 2 ? "110px" : "90px"};
+  height: ${({ $boxHeight }) =>
+    $boxHeight === 1 ? "130px" : $boxHeight === 2 ? "110px" : "90px"};
 `;

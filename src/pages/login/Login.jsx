@@ -9,12 +9,13 @@ import StarNugu from "/images/nugu-star.svg";
 
 import { useForm } from "@hooks/useForm";
 import { loginState } from "@atoms/loginState";
-
+import { postLogin } from "@apis/login";
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
 
-  const handleLogin = () => {
-    console.log("버튼눌림");
+  const handleLogin = async () => {
+    console.log(form);
+    await postLogin(form);
   };
   return (
     <S.Wrapper>

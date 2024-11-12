@@ -6,13 +6,14 @@ export const TestContainer = styled.div`
   justify-self: center;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 3rem;
+  padding-top: 5rem;
 `;
 
 export const FirstTextWrapper = styled.div`
   display: flex;
   width: 241px;
+  gap: 5px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -45,7 +46,7 @@ export const SubTextTitle = styled.div`
 //Home
 export const HomeSubTextTitle = styled.div`
   display: flex;
-  ${({ theme }) => theme.fonts.pretendardB3};
+  ${({ theme }) => theme.fonts.pretendardB1};
   color: ${({ theme }) => theme.colors.gray400};
 `;
 //True
@@ -53,6 +54,8 @@ export const HomeSubTextTitle = styled.div`
 export const UserRankWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-self: flex-start;
+  align-self: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 3rem;
@@ -94,9 +97,9 @@ export const CompleteText = styled.div`
   color: ${({ theme }) => theme.colors.blue300};
 `;
 export const RankingBox = styled.div`
-  width: 300px;
+  width: 280px;
   height: 300px;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,4 +126,10 @@ export const TotalRankingContainer = styled.div`
   width: 80%;
 
   gap: 20px;
+`;
+//ranking
+export const ChallengerScore = styled.div`
+  display: flex;
+  ${({ theme }) => theme.fonts.pretendardB3};
+  color: ${({ theme }) => theme.colors.gray400};
 `;

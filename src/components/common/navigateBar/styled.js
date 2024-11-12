@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 49px;
+  max-width: 430px;
+  height: 3rem;
   align-items: center;
   justify-content: space-between;
   background: ${({ theme }) => theme.colors.gray100};

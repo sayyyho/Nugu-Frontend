@@ -5,8 +5,7 @@ export const TestContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  gap: 2rem;
-  margin-top: 1rem;
+  gap: 1rem;
 `;
 //makeTest
 
@@ -16,6 +15,15 @@ export const Container = styled.div`
   align-items: center;
   height: 100vh;
   gap: 2rem;
+`;
+
+export const ChallengeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+  padding-top: 1rem;
 `;
 
 export const TestQuestionWrapper = styled.div`

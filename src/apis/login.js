@@ -1,17 +1,21 @@
 import { instance } from "./instance";
+import Cookies from "js-cookie";
 
 export const postLogin = async (form) => {
   try {
     const response = await instance.post("/login", {
-      username: form.username,
-      password: form.password,
+      ...form,
     });
-    console.log(response);
-    //   const token = response.headers["authorization"];
-    // if (token) {
-    //     sessionStorage.setItem("token", token);
-    //   window.location.href = "/nugu/admin";
-    //    }
+    const token = response.headers["authorization"];
+
+    if (token) {
+      const tokenValue = token.split(" ")[1];
+      Cookies.set("access_token", tokenValue, {
+        path: "/",
+        secure: true,
+        sameSite: "Strict",
+      });
+    }
   } catch (err) {
     throw err;
   }

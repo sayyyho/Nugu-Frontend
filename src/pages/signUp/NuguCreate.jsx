@@ -39,7 +39,7 @@ export const NuguCreate = () => {
 
     const timer = setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, [navigate]);

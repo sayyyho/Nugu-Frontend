@@ -9,7 +9,7 @@ export const NuguTestTrue = ({ username, ranking }) => {
         <div>누구테스트 순위</div>
       </S.UserTextWrapper>
       <S.TestRank>
-        <NuguTestRanking ranking={ranking} />
+        <NuguTestRanking ranking={ranking} isComplete={false} />
       </S.TestRank>
     </S.UserRankWrapper>
   );

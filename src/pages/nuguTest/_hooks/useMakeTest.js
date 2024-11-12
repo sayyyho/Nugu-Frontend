@@ -31,10 +31,19 @@ export const useMakeNuguTest = () => {
       ]);
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      console.log("소유자가 선택한 답들: ", answerHistory);
+      setAnswerHistory((prevHistory) => [
+        ...prevHistory,
+        selectedAnswer[currentQuestion],
+      ]);
       setIsMakeTest(true);
     }
   };
+
+  useEffect(() => {
+    if (answerHistory.length === TEST_QUESTION.length) {
+      console.log("소유자가 선택한 답들 in useMakeTest.js: ", answerHistory);
+    }
+  }, [answerHistory]);
 
   useEffect(() => {
     if (isMakeTest) {

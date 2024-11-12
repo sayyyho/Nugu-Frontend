@@ -3,11 +3,7 @@ import rank1 from "/images/rank1.svg";
 import rank2 from "/images/rank2.svg";
 import rank3 from "/images/rank3.svg";
 import basisrank from "/images/basisrank.svg";
-export const NuguTestRanking = ({
-  ranking,
-  highlightIndex = -1,
-  isComplete,
-}) => {
+export const NonRankingBox = ({ ranking, highlightIndex = -1, isComplete }) => {
   const getRankImage = (rank) => {
     if (rank === 1) return rank1;
     if (rank === 2) return rank2;
@@ -24,9 +20,6 @@ export const NuguTestRanking = ({
             $isHighlighted={isHighlighted}
             $isComplete={isComplete}
           >
-            <S.Rank $isHighlighted={isHighlighted} $isComplete={isComplete}>
-              {index + 1}
-            </S.Rank>
             <S.RankImg src={getRankImage(index + 1)} />
             <S.NickName $isHighlighted={isHighlighted} $isComplete={isComplete}>
               {user.nickname}

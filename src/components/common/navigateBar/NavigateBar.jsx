@@ -1,10 +1,10 @@
 import * as S from "./styled";
 import { useNavigate, useLocation } from "react-router-dom";
-import { NAVIGATE_TITLE } from "@constants/navigateBar";
+import { NAVIGATE_TITLE } from "@constants/navigatebar";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isTokenAvailable = true;
+  const isTokenAvailable = false;
   const handleMovePage = (value) => {
     let path;
     switch (value) {

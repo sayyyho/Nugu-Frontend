@@ -10,8 +10,6 @@ import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
 import { NuguCreate } from "@pages/signUp/NuguCreate";
 import { NuguAdmin } from "@pages/nugu/NuguAdmin";
 
-
-import { NuguCreate } from "@pages/signUp/NuguCreate";
 import { NuguTestPage } from "@pages/nuguTest/NuguTest";
 import { MakeNuguTest } from "@pages/nuguTest/MakeNuguTest";
 import { NuguChallenge } from "@pages/nuguTest/NuguChallenge";

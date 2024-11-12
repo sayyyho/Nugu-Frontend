@@ -18,6 +18,10 @@ export const useSignUp = (page) => {
   };
   const handleNextClick = (resetValidation, nextPath) => {
     if (Number(page) === 3) {
+      setSignUpData((prevData) => ({
+        ...prevData,
+        insta_url: `https://instagram.com/${signUpData.insta_url}`,
+      }));
       navigate("/signUp/submit");
     } else {
       navigate(nextPath);

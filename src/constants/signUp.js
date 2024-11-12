@@ -41,8 +41,8 @@ export const SIGN_UP_FIELDS = [
     },
     {
       name: "insta_url",
-      title: "인스타그램 링크 (선택)",
-      placeholder: "인스타그램 링크를 입력해 주세요.",
+      title: "인스타그램 아이디",
+      placeholder: "인스타그램 아이디를 입력해 주세요.",
       type: "text",
     },
   ],

@@ -5,6 +5,11 @@ import NUGU_CREATE_IMAGE from "/images/NuguCreateImg.svg";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useRecoilValue } from "recoil";
+import { signUpState } from "@atoms/signUpState";
+
+import { postSignUp } from "@apis/signUp";
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,12 +23,23 @@ export const Wrapper = styled.div`
 `;
 
 export const NuguCreate = () => {
+  const signUpData = useRecoilValue(signUpState);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const performPost = async () => {
+      try {
+        await postSignUp(signUpData);
+      } catch (error) {
+        console.error("Sign up failed:", error);
+      }
+    };
+
+    performPost();
+
     const timer = setTimeout(() => {
       navigate("/");
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, [navigate]);

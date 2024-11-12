@@ -7,6 +7,11 @@ export const postLogin = async (form) => {
       password: form.password,
     });
     console.log(response);
+    //   const token = response.headers["authorization"];
+    // if (token) {
+    //     sessionStorage.setItem("token", token);
+    //   window.location.href = "/nugu/admin";
+    //    }
   } catch (err) {
     throw err;
   }

@@ -1,6 +1,6 @@
 //접속자가 테스트 완료 후 3등까지 랭킹 보여줌
 import * as S from "./styled";
-import { NuguTestRanking } from "@components/nuguTestRanking/NuguTestRanking";
+import { NonRankingBox } from "@components/nuguTestRanking/NonRankingBox";
 import { Button } from "@components/common/button/Button";
 export const CompleteTest = ({ ranking, onClickChange }) => {
   const handleClick = () => {
@@ -18,7 +18,7 @@ export const CompleteTest = ({ ranking, onClickChange }) => {
       </S.TitleWrapper>
       <S.RankingBox>
         <S.RankingTitle>누구 테스트 랭킹</S.RankingTitle>
-        <NuguTestRanking ranking={ranking} />
+        <NonRankingBox ranking={ranking} isComplete={true} />
       </S.RankingBox>
       <Button onClick={handleClick} disabled={false}>
         전체 순위 확인하기

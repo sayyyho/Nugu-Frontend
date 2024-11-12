@@ -11,8 +11,12 @@ export const Wrapper = styled.div`
   border: 0.722px solid
     ${({ theme, $isHighlighted }) =>
       $isHighlighted ? theme.colors.blue400 : "rgba(0, 0, 0, 0.07)"};
-  background: ${({ theme, $isHighlighted }) =>
-    $isHighlighted ? theme.colors.blue300 : theme.colors.blue100};
+  background: ${({ theme, $isHighlighted, $isComplete }) =>
+    $isHighlighted
+      ? theme.colors.blue300
+      : $isComplete
+      ? theme.colors.gray100
+      : theme.colors.blue100};
   box-shadow: ${({ $isHighlighted }) =>
     $isHighlighted
       ? "0px 0px 3px 0px rgba(55, 130, 237, 0.3)"

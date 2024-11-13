@@ -9,6 +9,7 @@ import { CHIP_DATA } from "@constants/chip";
 import { useNavigate } from "react-router-dom";
 import { useIntroForm } from "./_hooks/useIntroForm";
 import { postIntro } from "@apis/nuguIntro";
+import { useParams } from "react-router-dom";
 export const WriteIntro = () => {
   const {
     content,
@@ -22,6 +23,7 @@ export const WriteIntro = () => {
   } = useIntroForm();
 
   const navigate = useNavigate();
+  const { uuid } = useParams();
 
   const handleSubmit = async () => {
     try {
@@ -30,8 +32,9 @@ export const WriteIntro = () => {
         keyword1,
         keyword2,
         keyword3,
+        uuid,
       });
-      navigate("/intro");
+      navigate(-1);
       return response;
     } catch (err) {
       throw err;

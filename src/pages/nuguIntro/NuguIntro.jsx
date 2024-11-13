@@ -9,33 +9,25 @@ import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
 import { RankingBox } from "@components/rankingBox/RankingBox";
 import { IntroField } from "@components/common/introField/IntroField";
 import { Layout } from "@components/common/layout/Layout";
-
+import { useParams } from "react-router-dom";
 import { getIntroList } from "@apis/nuguIntro";
 export const NuguIntro = () => {
+  const { uuid } = useParams();
   const navigate = useNavigate();
   const [introList, setIntroList] = useState([]);
 
-  // const rank = [
-  //   {
-  //     keyword1: "순수한",
-  //     keyword2: "관대한",
-  //     keyword3: "다정한",
-  //     intro_list: ["착한 친구입니다.", "재밌는 친구입니다~"],
-  //   },
-  // ];
-  // //누구 소개-사용자get
-
   useEffect(() => {
+    if (!uuid) return;
     const fetchData = async () => {
       try {
-        const Data = await getIntroList();
+        const Data = await getIntroList(uuid);
         setIntroList(Data.data);
       } catch (error) {
         throw error;
       }
     };
     fetchData();
-  }, []);
+  }, [uuid]);
 
   const isNuguIntro = introList && introList.length > 0 ? introList : null;
 

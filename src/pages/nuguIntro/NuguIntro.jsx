@@ -29,7 +29,7 @@ export const NuguIntro = () => {
     const fetchData = async () => {
       try {
         const Data = await getIntroList();
-        setIntroList(Data);
+        setIntroList(Data.data);
       } catch (error) {
         throw error;
       }
@@ -37,7 +37,7 @@ export const NuguIntro = () => {
     fetchData();
   }, []);
 
-  const isNuguIntro = introList && introList.length > 0 ? introList[0] : null;
+  const isNuguIntro = introList && introList.length > 0 ? introList : null;
 
   const moveOnintro = () => {
     navigate("/intro/write");

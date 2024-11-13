@@ -1,6 +1,7 @@
 import { instance } from "./instance";
 import Cookies from "js-cookie";
-
+import { useNavigate } from "react-router-dom";
+const navigate = useNavigate();
 export const postLogin = async (form) => {
   try {
     const response = await instance.post("/login", {
@@ -15,6 +16,7 @@ export const postLogin = async (form) => {
         secure: true,
         sameSite: "Strict",
       });
+      navigate("/nugu/admin");
     }
   } catch (err) {
     throw err;

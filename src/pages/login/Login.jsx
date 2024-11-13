@@ -1,5 +1,9 @@
 import * as S from "./styled";
 import React from "react";
+
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+
 import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
@@ -10,14 +14,16 @@ import { getUUID } from "@apis/uuid";
 
 import NuguLogo from "/images/SmallLogo.png";
 import StarNugu from "/images/StarNugu.png";
+import Cookies from "js-cookie";
 
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    console.log(form);
     await postLogin(form);
     await getUUID();
+    navigate(`nugu/${Cookies.get("uuid")}`);
   };
 
   return (

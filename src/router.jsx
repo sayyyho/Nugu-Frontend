@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         element: <ChallengerTest />,
       },
       {
-        path: "/nugu/admin",
+        path: "/nugu/:uuid",
         element: <NuguAdmin />,
       },
     ],

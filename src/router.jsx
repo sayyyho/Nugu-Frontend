@@ -57,12 +57,12 @@ const router = createBrowserRouter([
       },
       {
         //접속자뷰 누구테스트홈
-        path: "/challenge",
+        path: "/challenge/:uuid",
         element: <NuguChallenge />,
       },
       {
         //
-        path: "/challenge/test",
+        path: "/challenge/test/:uuid",
         element: <ChallengerTest />,
       },
       {

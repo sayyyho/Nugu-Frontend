@@ -1,18 +1,20 @@
 import * as S from "./styled";
 import { useNavigate, useLocation } from "react-router-dom";
 import { NAVIGATE_TITLE } from "@constants/navigatebar";
+import Cookies from "js-cookie";
+
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isTokenAvailable = true;
+  const isTokenAvailable = Cookies.get("access_token") ? true : false;
   const handleMovePage = (value) => {
     let path;
     switch (value) {
       case 1:
-        path = isTokenAvailable ? "/login" : "/login";
+        path = `/nugu/${Cookies.get("uuid")}`;
         break;
       case 2:
-        path = "/intro";
+        path = `/intro/${Cookies.get("uuid")}`;
         break;
       case 3:
         path = isTokenAvailable ? "/test" : "/challenge";
@@ -24,7 +26,6 @@ export const NavigateBar = () => {
     navigate(path);
   };
   const isActive = (path) => location.pathname === path;
-  console.log(isActive);
   return (
     <S.Container>
       {NAVIGATE_TITLE.map((item) => (
@@ -33,13 +34,9 @@ export const NavigateBar = () => {
           className={
             isActive(
               item.value === 1
-                ? isTokenAvailable
-                  ? "/dashboard"
-                  : "/login"
+                ? `/nugu/${Cookies.get("uuid")}`
                 : item.value === 2
-                ? isTokenAvailable
-                  ? "/intro"
-                  : "/intro"
+                ? `/intro/${Cookies.get("uuid")}`
                 : isTokenAvailable
                 ? "/test"
                 : "/challenge"

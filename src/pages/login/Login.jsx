@@ -22,13 +22,13 @@ export const Login = () => {
   const performAPI = async () => {
     try {
       await postLogin(form);
-      await getUUID();
-      const uuid = Cookies.get("uuid");
-      if (uuid) {
-        navigate(`/nugu/${uuid}`);
-      } else {
-        console.error("UUID를 찾을 수 없습니다.");
-      }
+      // await getUUID();
+      // const uuid = Cookies.get("uuid");
+      // if (uuid) {
+      //   navigate(`/nugu/${uuid}`);
+      // } else {
+      //   console.error("UUID를 찾을 수 없습니다.");
+      // }
     } catch (error) {
       console.error("로그인 요청 중 에러가 발생했습니다:", error);
     }

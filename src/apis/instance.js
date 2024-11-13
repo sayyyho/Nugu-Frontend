@@ -18,8 +18,7 @@ instance.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
+  () => {
     console.log("토큰 없음");
-    return Promise.reject(error);
   }
 );

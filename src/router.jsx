@@ -35,11 +35,11 @@ const router = createBrowserRouter([
         element: <SignUpSubmit />,
       },
       {
-        path: "/intro",
+        path: "/nuguIntro/:uuid",
         element: <NuguIntro />,
       },
       {
-        path: "/intro/write",
+        path: "/nuguIntro/write/:uuid",
         element: <WriteIntro />,
       },
       {

@@ -6,7 +6,7 @@ import { Chip } from "@components/chip/Chip";
 import { useParams } from "react-router-dom";
 import { useNuguInfo } from "./_hooks/useNuguInfo";
 
-export const NuguAdmin = () => {
+export const Nugu = () => {
   const { uuid } = useParams();
   const { data, isAdmin } = useNuguInfo(uuid);
   return (

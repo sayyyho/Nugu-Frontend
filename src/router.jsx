@@ -8,7 +8,7 @@ import { SignUpSubmit } from "@pages/signUp/SignUpSubmit";
 import { NuguIntro } from "@pages/nuguIntro/NuguIntro";
 import { WriteIntro } from "@pages/nuguIntro/WriteIntro";
 import { NuguCreate } from "@pages/signUp/NuguCreate";
-import { NuguAdmin } from "@pages/nugu/NuguAdmin";
+import { Nugu } from "@pages/nugu/Nugu";
 import { NuguTestPage } from "@pages/nuguTest/NuguTest";
 import { MakeNuguTest } from "@pages/nuguTest/MakeNuguTest";
 import { NuguChallenge } from "@pages/nuguTest/NuguChallenge";
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/nugu/:uuid",
-        element: <NuguAdmin />,
+        element: <Nugu />,
       },
     ],
   },

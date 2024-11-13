@@ -19,10 +19,23 @@ export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    await postLogin(form);
-    await getUUID();
-    navigate(`/nugu/${Cookies.get("uuid")}`);
+  const performAPI = async () => {
+    try {
+      await postLogin(form);
+      await getUUID();
+      const uuid = Cookies.get("uuid");
+      if (uuid) {
+        navigate(`/nugu/${uuid}`);
+      } else {
+        console.error("UUID를 찾을 수 없습니다.");
+      }
+    } catch (error) {
+      console.error("로그인 요청 중 에러가 발생했습니다:", error);
+    }
+  };
+
+  const handleLogin = () => {
+    performAPI();
   };
 
   return (

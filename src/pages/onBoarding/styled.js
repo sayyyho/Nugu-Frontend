@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
   gap: 3rem;
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 `;
 
 export const LogoContainer = styled.div`

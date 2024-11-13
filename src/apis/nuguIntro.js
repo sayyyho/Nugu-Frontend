@@ -4,13 +4,14 @@ import Cookies from "js-cookie";
 export const getIntroList = async () => {
   try {
     const token = Cookies.get("access_token");
+
     if (token) {
       const response = await instance.get("/intro");
       console.log("getIntroList", response);
     } else {
-      // const response = await instance.get(`/intro/${uuid}`);
-      // console.log("getGuestIntroList", response);
-      //TODO
+      const uuid = Cookies.get("uuid");
+      const response = await instance.get(`/intro/${uuid}`);
+      console.log("getGuestIntroList", response);
     }
   } catch (error) {
     throw error;
@@ -28,14 +29,15 @@ export const postIntro = async ({ content, keyword1, keyword2, keyword3 }) => {
       });
       return response;
     } else {
-      // const response = await instance.post(`/intro/${uuid}`, {
-      //   content,
-      //   keyword1,
-      //   keyword2,
-      //   keyword3,
-      // });
-      // return response;
-      //TODO
+      const uuid = Cookies.get("uuid");
+
+      const response = await instance.post(`/intro/${uuid}`, {
+        content,
+        keyword1,
+        keyword2,
+        keyword3,
+      });
+      return response;
     }
   } catch (error) {
     throw error;

@@ -14,7 +14,6 @@ import { getUUID } from "@apis/uuid";
 
 import NuguLogo from "/images/SmallLogo.png";
 import StarNugu from "/images/StarNugu.png";
-import Cookies from "js-cookie";
 
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);

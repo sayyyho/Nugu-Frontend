@@ -18,6 +18,7 @@ export const useNuguInfo = (uuid) => {
     if (!Cookies.get("uuid")) {
       Cookies.set("uuid", uuid);
     }
+
     if (Cookies.get("access_token")) {
       setIsAdmin(true);
     }
@@ -35,7 +36,9 @@ export const useNuguInfo = (uuid) => {
           keyword2,
           keyword3,
         } = response;
-
+        if (!Cookies.get("nickname")) {
+          Cookies.set("nickname", nickname);
+        }
         setData({
           nickname,
           mbti,

@@ -1,8 +1,9 @@
 import { instance } from "./instance";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-const navigate = useNavigate();
 export const postLogin = async (form) => {
+  const navigate = useNavigate();
+
   try {
     const response = await instance.post("/login", {
       ...form,

@@ -8,10 +8,9 @@ export const getIntroList = async () => {
       const response = await instance.get("/intro");
       console.log("getIntroList", response);
     } else {
-      const uuid = crypto.randomUUID();
-      console.log("getIntroList 접속자", uuid);
-      const response = await instance.get(`/intro/${uuid}`);
-      console.log("getGuestIntroList", response);
+      // const response = await instance.get(`/intro/${uuid}`);
+      // console.log("getGuestIntroList", response);
+      //TODO
     }
   } catch (error) {
     throw error;
@@ -29,15 +28,14 @@ export const postIntro = async ({ content, keyword1, keyword2, keyword3 }) => {
       });
       return response;
     } else {
-      const uuid = crypto.randomUUID();
-      console.log("getIntroList 접속자", uuid);
-      const response = await instance.post(`/intro/${uuid}`, {
-        content,
-        keyword1,
-        keyword2,
-        keyword3,
-      });
-      return response;
+      // const response = await instance.post(`/intro/${uuid}`, {
+      //   content,
+      //   keyword1,
+      //   keyword2,
+      //   keyword3,
+      // });
+      // return response;
+      //TODO
     }
   } catch (error) {
     throw error;

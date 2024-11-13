@@ -22,7 +22,7 @@ export const Login = () => {
   const handleLogin = async () => {
     await postLogin(form);
     await getUUID();
-    navigate(`nugu/${Cookies.get("uuid")}`);
+    navigate(`/nugu/${Cookies.get("uuid")}`);
   };
 
   return (

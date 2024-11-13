@@ -6,9 +6,10 @@ import { Input } from "@components/input/Input";
 import { useForm } from "@hooks/useForm";
 import { loginState } from "@atoms/loginState";
 import { postLogin } from "@apis/login";
+import { getUUID } from "@apis/uuid";
+
 import NuguLogo from "/images/SmallLogo.png";
 import StarNugu from "/images/StarNugu.png";
-
 
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
@@ -16,6 +17,7 @@ export const Login = () => {
   const handleLogin = async () => {
     console.log(form);
     await postLogin(form);
+    await getUUID();
   };
 
   return (

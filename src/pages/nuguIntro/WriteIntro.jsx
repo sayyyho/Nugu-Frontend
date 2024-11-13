@@ -34,7 +34,9 @@ export const WriteIntro = () => {
         keyword3,
         uuid,
       });
-      navigate(-1);
+      if (response) {
+        navigate(-1);
+      }
       return response;
     } catch (err) {
       throw err;

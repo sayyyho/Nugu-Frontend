@@ -32,7 +32,7 @@ export const NuguIntro = () => {
   const isNuguIntro = introList && introList.length > 0 ? introList : null;
 
   const moveOnintro = () => {
-    navigate("/intro/write");
+    navigate(`/nuguIntro/write/${uuid}`);
   };
   return (
     <Layout $margin="4rem 0 0 0" $justifyContent="start">

@@ -55,7 +55,7 @@ export const NuguTestPage = () => {
   ];
 
   return (
-    <Layout>
+    <Layout $margin="3rem 0 0 0" $justifyContent="start">
       <NavigateBar />
       <S.TestContainer>
         {isMakeTest ? (

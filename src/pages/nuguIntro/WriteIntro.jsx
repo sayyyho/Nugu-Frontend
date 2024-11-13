@@ -6,21 +6,36 @@ import { Button } from "@components/common/button/Button";
 import { Chip } from "@components/chip/Chip";
 import { CHIP_DATA } from "@constants/chip";
 
-import { useChip } from "@pages/signUp/_hooks/useChip";
-import { useForm } from "@hooks/useForm";
-import { atom } from "recoil";
 import { useNavigate } from "react-router-dom";
-const formAtom = atom({
-  key: "formAtom",
-  default: { content: "" },
-});
-
+import { useIntroForm } from "./_hooks/useIntroForm";
+import { postIntro } from "@apis/nuguIntro";
 export const WriteIntro = () => {
-  const { selectedChip, handleClickStatus, selectedCount } = useChip();
-  const { form, handleChange, isValid } = useForm(formAtom);
+  const {
+    content,
+    handleChangeContent,
+    handleClickStatus,
+    keyword1,
+    keyword2,
+    keyword3,
+    selectedChip,
+    selectedCount,
+  } = useIntroForm();
+
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    navigate("/intro");
+
+  const handleSubmit = async () => {
+    try {
+      const response = await postIntro({
+        content,
+        keyword1,
+        keyword2,
+        keyword3,
+      });
+      navigate("/intro");
+      return response;
+    } catch (err) {
+      throw err;
+    }
   };
   return (
     <S.IntroContainer>
@@ -30,8 +45,8 @@ export const WriteIntro = () => {
           title={"누구를 소개하자면?"}
           name="content"
           placeholder={"누구 소개를 입력해 주세요 (150자 이내)"}
-          value={form.content}
-          onChange={handleChange}
+          value={content}
+          onChange={handleChangeContent}
         />
 
         <S.TitleWrapper>
@@ -53,7 +68,10 @@ export const WriteIntro = () => {
           </S.ChipWrapper>
         </S.TitleWrapper>
       </S.InfoWrapper>
-      <Button disabled={selectedCount !== 3 || !isValid} onClick={handleSubmit}>
+      <Button
+        disabled={selectedCount !== 3 || content.length === 0}
+        onClick={handleSubmit}
+      >
         저장하기
       </Button>
     </S.IntroContainer>

@@ -1,6 +1,5 @@
 import * as S from "./styled";
 export const IntroField = ({ isNuguIntro }) => {
-  console.log("isNuguIntro", isNuguIntro);
   const IntroList =
     isNuguIntro && isNuguIntro.intro_list.length > 0
       ? isNuguIntro.intro_list

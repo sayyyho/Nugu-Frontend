@@ -6,12 +6,6 @@ import { Chip } from "@components/chip/Chip";
 import { useParams } from "react-router-dom";
 import { useNuguInfo } from "./_hooks/useNuguInfo";
 
-const MOCK_NAME = "박세호";
-const MOCK_MBTI = "ISFP";
-const MOCK_MEMBER = "동국대학교";
-const TEST = "";
-const MOCK_CHIP_DATA = ["키워드1", "키워드2", "키워드3"];
-
 export const NuguAdmin = () => {
   const { uuid } = useParams();
   const { data } = useNuguInfo(uuid);
@@ -26,25 +20,23 @@ export const NuguAdmin = () => {
       <S.Wrapper>
         <S.TitleWrapper>
           <S.MainTextWrapper>
-            <S.NuguTitle>{MOCK_NAME}의 누구</S.NuguTitle>
+            <S.NuguTitle>{data.nickname}의 누구</S.NuguTitle>
             <S.Image
               src={"/images/insta.svg"}
-              onClick={() =>
-                (window.location.href = "https://www.instagram.com/")
-              }
+              onClick={() => (window.location.href = data.instaUrl)}
             />
           </S.MainTextWrapper>
-          <S.MBTITitle>{MOCK_MBTI}</S.MBTITitle>
-          <S.MemberTitle>{MOCK_MEMBER}</S.MemberTitle>
+          <S.MBTITitle>{data.mbti}</S.MBTITitle>
+          <S.MemberTitle>{data.org}</S.MemberTitle>
         </S.TitleWrapper>
         <S.BackgroundCircle>
           <S.CloudImg src="/images/NuguCreateImg.svg" />
         </S.BackgroundCircle>
-        <S.Introduce>{TEST || "테스트"}</S.Introduce>
+        <S.Introduce>{data.intro || ""}</S.Introduce>
         <S.ChipWrapper>
-          {MOCK_CHIP_DATA.map((data, index) => (
+          {data.keywords.map((keyword, index) => (
             <Chip $backgroundColor={"white"} key={index}>
-              {data}
+              {keyword}
             </Chip>
           ))}
         </S.ChipWrapper>

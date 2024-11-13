@@ -10,6 +10,10 @@ import { Button } from "@components/common/button/Button";
 import { NuguTestTrue } from "@components/nuguTest/NuguTestTrue";
 import { isMakeTestOwner } from "@atoms/nuguTestState";
 import { useRecoilState } from "recoil";
+
+import { getNuguTestStatus } from "@apis/nuguTest";
+import Cookies from "js-cookie";
+
 //토큰 여부로 워딩 다르게 표현
 export const NuguTestPage = () => {
   const [isMakeTest, setIsMakeTest] = useRecoilState(isMakeTestOwner);
@@ -18,7 +22,7 @@ export const NuguTestPage = () => {
   useEffect(() => {
     const fetchTestStatus = async () => {
       try {
-        const hasTest = false;
+        const hasTest = await getNuguTestStatus();
         //누구 테스트 사용자-get
         setIsMakeTest(hasTest);
       } catch (error) {
@@ -62,11 +66,11 @@ export const NuguTestPage = () => {
           array.length === 0 ? (
             <NuguTestNone isTestOwner={true} />
           ) : (
-            <NuguTestTrue username={"하채민"} ranking={array} />
+            <NuguTestTrue username={Cookies.get("nickname")} ranking={array} />
           )
         ) : (
           <>
-            <NuguTestHome username={"하채민"} isOwner={true} />
+            <NuguTestHome username={Cookies.get("nickname")} isOwner={true} />
             <Button disabled={false} onClick={() => moveOnTest()}>
               누구테스트 만들러 가기
             </Button>

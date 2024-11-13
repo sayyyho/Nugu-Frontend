@@ -1,27 +1,35 @@
 import * as S from "./styled";
+import React from "react";
 
-import React, { useState } from "react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+
 import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
-import NuguLogo from "/images/small_logo.svg";
-import StarNugu from "/images/nugu-star.svg";
-
 import { useForm } from "@hooks/useForm";
 import { loginState } from "@atoms/loginState";
 import { postLogin } from "@apis/login";
+import { getUUID } from "@apis/uuid";
+
+import NuguLogo from "/images/SmallLogo.png";
+import StarNugu from "/images/StarNugu.png";
+
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
-    console.log(form);
     await postLogin(form);
+    await getUUID();
+    navigate(`/nugu/${Cookies.get("uuid")}`);
   };
+
   return (
     <S.Wrapper>
       <Logo logo={NuguLogo} />
       <S.ImgWrapper>
-        <img src={StarNugu} alt="starnugu" />
+        <img src={StarNugu} alt="starnugu" loading="lazy" />
         <S.BtnContainer>
           <Input
             title={"아이디"}
@@ -36,6 +44,7 @@ export const Login = () => {
             value={form.password}
             onChange={handleChange}
             placeholder={"비밀번호를 입력해 주세요"}
+            type="password"
           />
         </S.BtnContainer>
         <Button disabled={!isValid} onClick={handleLogin}>

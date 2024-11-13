@@ -15,6 +15,8 @@ export const postLogin = async (form) => {
         secure: true,
         sameSite: "Strict",
       });
+
+      window.location.href = "/nugu/admin";
     }
   } catch (err) {
     throw err;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getNuguInfo } from "@apis/nuguInfo";
+import Cookies from "js-cookie";
 
 export const useNuguInfo = (uuid) => {
   const [data, setData] = useState({
@@ -11,9 +12,13 @@ export const useNuguInfo = (uuid) => {
     keywords: [],
   });
   const [error, setError] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (!uuid) return;
+    if (Cookies.get("access_token")) {
+      setIsAdmin(true);
+    }
 
     const fetchData = async () => {
       try {
@@ -46,6 +51,5 @@ export const useNuguInfo = (uuid) => {
     fetchData();
   }, [uuid]);
 
-  return { data, error };
+  return { data, error, isAdmin };
 };
-// TODO - 쿠키 있으면 상태 가능으로 없으면 불가능으로 상태관리 - 상태 넘겨주기

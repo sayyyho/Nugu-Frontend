@@ -26,3 +26,12 @@ export const patchNuguInfo = async ({
     throw err;
   }
 };
+
+export const getNugu = async () => {
+  try {
+    const response = await instance.get(`/user`);
+    return response.data;
+  } catch (err) {
+    throw err;
+  }
+};

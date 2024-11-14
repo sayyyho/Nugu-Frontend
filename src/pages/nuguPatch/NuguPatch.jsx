@@ -13,7 +13,7 @@ import { Button } from "@components/common/button/Button";
 import { useNuguPatch } from "./_hooks/useNuguPatch";
 export const NuguPatch = () => {
   const [updateData, setUpdateData] = useRecoilState(signUpState);
-  const { handleSubmit } = useNuguPatch();
+  const { handleSubmit, isFormValid } = useNuguPatch();
   const { selectedChip, handleClickStatus, selectedCount } = usePatchChip();
 
   const handleInputChange = (name, value) => {
@@ -61,7 +61,10 @@ export const NuguPatch = () => {
             </S.ChipWrapper>
           </S.TitleWrapper>
         </S.TopWrapper>
-        <Button disabled={selectedCount !== 3} onClick={handleSubmit}>
+        <Button
+          disabled={selectedCount !== 3 || !isFormValid()}
+          onClick={handleSubmit}
+        >
           저장하기
         </Button>
       </S.PatchWrapper>

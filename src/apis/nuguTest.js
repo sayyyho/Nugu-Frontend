@@ -18,3 +18,14 @@ export const getNuguTestRanking = async () => {
     console.log(err);
   }
 };
+
+export const postMakingNuguTest = async (answers) => {
+  try {
+    const response = await instance.post("/tests", {
+      answers,
+    });
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+  }
+};

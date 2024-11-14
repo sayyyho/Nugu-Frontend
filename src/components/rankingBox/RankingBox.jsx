@@ -3,7 +3,9 @@ import * as S from "./styled";
 export const RankingBox = ({ NuguIntroRank }) => {
   const rank = [2, 1, 3];
   const isNuguIntroRank =
-    Object.keys(NuguIntroRank).length > 0 ? NuguIntroRank : null;
+    NuguIntroRank && Object.keys(NuguIntroRank).length > 0
+      ? NuguIntroRank
+      : null;
   return (
     <S.RankingContainer>
       {rank.map((item) => {

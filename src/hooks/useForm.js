@@ -9,7 +9,6 @@ export const useForm = (atomState) => {
       ...prevForm,
       [name]: value,
     }));
-    console.log("입력된 정보:", { ...form, [name]: value });
   };
 
   const isValid = Object.values(form).every((value) => value.trim() !== "");

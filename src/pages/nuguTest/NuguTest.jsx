@@ -17,15 +17,6 @@ export const NuguTestPage = () => {
   const [participants, setParticipants] = useState(0);
   const navigate = useNavigate();
 
-  const sampleArray = [
-    {
-      nickname: "응시자1",
-      correctAnswers: 7,
-      rank: 1,
-      totalParticipants: 1,
-    },
-  ];
-
   useEffect(() => {
     const fetchTestStatus = async () => {
       try {
@@ -52,10 +43,7 @@ export const NuguTestPage = () => {
           participants === 0 ? (
             <NuguTestNone isTestOwner={true} />
           ) : (
-            <NuguTestTrue
-              username={Cookies.get("nickname")}
-              ranking={sampleArray}
-            />
+            <NuguTestTrue username={Cookies.get("nickname")} />
           )
         ) : (
           <>

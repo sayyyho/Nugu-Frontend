@@ -13,6 +13,7 @@ import { NuguTestPage } from "@pages/nuguTest/NuguTest";
 import { MakeNuguTest } from "@pages/nuguTest/MakeNuguTest";
 import { NuguChallenge } from "@pages/nuguTest/NuguChallenge";
 import { ChallengerTest } from "@pages/nuguTest/ChallengerTest";
+import { NuguPatch } from "@pages/nuguPatch/NuguPatch";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/nugu/:uuid",
         element: <Nugu />,
+      },
+      {
+        path: "/nugu/patch",
+        element: <NuguPatch />,
       },
     ],
   },

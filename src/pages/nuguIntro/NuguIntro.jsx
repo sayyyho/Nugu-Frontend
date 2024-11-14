@@ -29,7 +29,8 @@ export const NuguIntro = () => {
     fetchData();
   }, [uuid]);
 
-  const isNuguIntro = Object.keys(introList).length > 0 ? introList : null;
+  const isNuguIntro =
+    introList && Object.keys(introList).length > 0 ? introList : null;
   console.log("isNuguIntro", isNuguIntro);
   const moveOnintro = () => {
     navigate(`/nuguIntro/write/${uuid}`);

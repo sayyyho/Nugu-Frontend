@@ -36,8 +36,8 @@ export const ChallengerTest = () => {
           isCheckTotalRanking ? (
             <TestRanking
               username={Cookies.get("nickname")}
-              correctAnswers={9}
-              rank={1}
+              correctAnswers={result[0].correctAnswers}
+              rank={result[0].rank}
               ranking={result}
               highlightIndex={0}
             />

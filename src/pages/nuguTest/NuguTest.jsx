@@ -32,7 +32,6 @@ export const NuguTestPage = () => {
         const data = await getNuguTestStatus();
         setIsMakeTest(data.hasTest);
         setParticipants(Number(data.totalParticipants));
-        console.log("hasTest :", hasTest);
       } catch (error) {
         console.error("실패", error);
       }

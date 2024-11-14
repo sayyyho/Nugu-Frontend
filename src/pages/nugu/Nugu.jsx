@@ -13,6 +13,15 @@ export const Nugu = () => {
   const moveOnPatch = () => {
     navigate(`/nugu/patch/${uuid}`);
   };
+  const handleShare = () => {
+    const currentUrl = window.location.href;
+    navigator.clipboard
+      .writeText(currentUrl)
+      .then(() => {
+        alert("공유 링크가 복사되었어요!");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <Layout
       $backgroundColor={"blue200"}
@@ -45,7 +54,7 @@ export const Nugu = () => {
         </S.ChipWrapper>
         {isAdmin && (
           <S.AdminWrapper>
-            <S.ShareBtn>누구 공유하기</S.ShareBtn>
+            <S.ShareBtn onClick={handleShare}>누구 공유하기</S.ShareBtn>
             <S.EditBtn onClick={() => moveOnPatch()}>수정하기</S.EditBtn>
           </S.AdminWrapper>
         )}

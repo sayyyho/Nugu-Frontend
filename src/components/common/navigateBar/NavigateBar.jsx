@@ -14,7 +14,7 @@ export const NavigateBar = () => {
         path = `/nugu/${Cookies.get("uuid")}`;
         break;
       case 2:
-        path = `/intro/${Cookies.get("uuid")}`;
+        path = `/nuguIntro/${Cookies.get("uuid")}`;
         break;
       case 3:
         path = isTokenAvailable ? "/test" : "/challenge";

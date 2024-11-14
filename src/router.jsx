@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         element: <Nugu />,
       },
       {
-        path: "/nugu/patch",
+        path: "/nugu/patch/:uuid",
         element: <NuguPatch />,
       },
     ],

@@ -16,6 +16,7 @@ export const usePatchChip = () => {
 
   const handleClickStatus = (index) => {
     const updatedChip = [...selectedChip];
+    console.log(updatedChip);
     updatedChip[index] = !updatedChip[index];
     if (updatedChip.filter((chip) => chip).length > 3) {
       return;

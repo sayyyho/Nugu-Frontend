@@ -36,7 +36,7 @@ export const useNuguInfo = (uuid) => {
           keyword2,
           keyword3,
         } = response;
-        if (!Cookies.get("nickname")) {
+        if (!Cookies.get("nickname") || nickname !== Cookies.get("nickname")) {
           Cookies.set("nickname", nickname);
         }
         setData({

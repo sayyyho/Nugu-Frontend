@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { TEST_QUESTION } from "@constants/nuguTest";
+import { getNuguTestResult } from "@apis/nuguTest";
+import Cookies from "js-cookie";
 
 export const useChallengeTest = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(
@@ -9,6 +11,7 @@ export const useChallengeTest = () => {
   const [answerHistory, setAnswerHistory] = useState([]);
   const [isChallenge, setIsChallenge] = useState(false);
   const [isCheckTotalRanking, setIsCheckTotalRanking] = useState(false);
+  const [result, setResult] = useState([]);
 
   const handleAnswerSelect = (answer) => {
     const updatedAnswers = [...selectedAnswer];
@@ -16,7 +19,7 @@ export const useChallengeTest = () => {
     setSelectedAnswer(updatedAnswers);
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async () => {
     if (currentQuestion < TEST_QUESTION.length - 1) {
       setAnswerHistory((prevHistory) => [
         ...prevHistory,
@@ -29,7 +32,8 @@ export const useChallengeTest = () => {
         selectedAnswer[currentQuestion],
       ]);
       console.log("접속자가 선택한 답: ", answerHistory);
-
+      const result = await getNuguTestResult(Cookies.get("uuid"));
+      setResult(result);
       setIsChallenge(true);
     }
   };
@@ -39,6 +43,7 @@ export const useChallengeTest = () => {
   };
 
   return {
+    result,
     selectedAnswer,
     currentQuestion,
     isChallenge,

@@ -7,8 +7,10 @@ import { TEST_QUESTION } from "@constants/nuguTest";
 import { CompleteTest } from "@components/nuguTest/CompleteTest";
 import { TestRanking } from "@components/nuguTest/TestRanking";
 import { useChallengeTest } from "./_hooks/useChallengeTest";
+import Cookies from "js-cookie";
 export const ChallengerTest = () => {
   const {
+    result,
     selectedAnswer,
     currentQuestion,
     isChallenge,
@@ -17,27 +19,6 @@ export const ChallengerTest = () => {
     handleNextQuestion,
     handleIsClickChange,
   } = useChallengeTest();
-
-  const array = [
-    {
-      nickname: "응시자1",
-      correctAnswers: 7,
-      rank: 2,
-      totalParticipants: 3,
-    },
-    {
-      nickname: "응시자2",
-      correctAnswers: 7,
-      rank: 2,
-      totalParticipants: 3,
-    },
-    {
-      nickname: "응시자3",
-      correctAnswers: 7,
-      rank: 2,
-      totalParticipants: 3,
-    },
-  ];
 
   const rank = [0, 1, 1, 1, 0, 0, 1, 0, 1, 1]; // 서버에서 받아올 값
   const isAnswerinCorrect =
@@ -54,14 +35,17 @@ export const ChallengerTest = () => {
         {isChallenge ? ( //3명 랭킹 보여주는 화면
           isCheckTotalRanking ? (
             <TestRanking
-              username={"하채민"}
-              correctAnswers={array[0].correctAnswers}
-              rank={array[0].rank}
-              ranking={array}
+              username={Cookies.get("nickname")}
+              correctAnswers={result[0].correctAnswers}
+              rank={result[0].rank}
+              ranking={result}
               highlightIndex={0}
             />
           ) : (
-            <CompleteTest ranking={array} onClickChange={handleIsClickChange} />
+            <CompleteTest
+              ranking={result}
+              onClickChange={handleIsClickChange}
+            />
           )
         ) : (
           <TestQuestion

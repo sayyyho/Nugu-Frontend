@@ -8,7 +8,13 @@ import { NuguTestNone } from "@components/nuguTest/NuguTestNone";
 import { NuguTestHome } from "@components/nuguTest/NuguTestHome";
 import { Button } from "@components/common/button/Button";
 
+import { useSetRecoilState } from "recoil";
+import { testUser } from "@atoms/testUser";
+
+import Cookies from "js-cookie";
+
 export const NuguChallenge = () => {
+  const setTestUser = useSetRecoilState(testUser);
   const navigate = useNavigate();
   const isTestMake = true;
   const moveOnTest = () => {
@@ -20,9 +26,12 @@ export const NuguChallenge = () => {
       <S.TestContainer>
         {isTestMake ? (
           <>
-            <NuguTestHome username={"하채민"} />
-            <S.NichNameCase placeholder="닉네임을 입력해 주세요."></S.NichNameCase>
-            <Button disabled={false} onClick={() => moveOnTest()}>
+            <NuguTestHome username={Cookies.get("nickname")} />
+            <S.NichNameCase
+              placeholder="닉네임을 입력해 주세요."
+              onChange={(e) => setTestUser(e.target.value)}
+            ></S.NichNameCase>
+            <Button disabled={false} onClick={moveOnTest}>
               테스트 시작하기
             </Button>
           </>

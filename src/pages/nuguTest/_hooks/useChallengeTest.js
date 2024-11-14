@@ -36,9 +36,9 @@ export const useChallengeTest = () => {
         ...prevHistory,
         selectedAnswer[currentQuestion],
       ]);
-      console.log("접속자가 선택한 답: ", answerHistory);
+      console.log("접속자가 선택한 답: ", selectedAnswer);
       await postGuestTest(
-        { nickname: nickname, userAnswers: answerHistory },
+        { nickname: nickname, userAnswers: selectedAnswer },
         Cookies.get("uuid")
       );
       const result = await getNuguTestResult(Cookies.get("uuid"));

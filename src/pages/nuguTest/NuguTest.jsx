@@ -38,7 +38,7 @@ export const NuguTestPage = () => {
     };
 
     fetchTestStatus();
-  }, [navigate]);
+  }, []);
 
   const moveOnTest = () => {
     navigate("/test/make");
@@ -49,12 +49,12 @@ export const NuguTestPage = () => {
       <NavigateBar />
       <S.TestContainer>
         {isMakeTest ? (
-          participants ? (
+          participants === 0 ? (
             <NuguTestNone isTestOwner={true} />
           ) : (
             <NuguTestTrue
-              username={sampleArray[0].nickname}
-              ranking={sampleArray[0].rank}
+              username={Cookies.get("nickname")}
+              ranking={sampleArray}
             />
           )
         ) : (

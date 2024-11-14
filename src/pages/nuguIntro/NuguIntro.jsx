@@ -14,7 +14,7 @@ import { getIntroList } from "@apis/nuguIntro";
 export const NuguIntro = () => {
   const { uuid } = useParams();
   const navigate = useNavigate();
-  const [introList, setIntroList] = useState([]);
+  const [introList, setIntroList] = useState({});
 
   useEffect(() => {
     if (!uuid) return;
@@ -29,8 +29,8 @@ export const NuguIntro = () => {
     fetchData();
   }, [uuid]);
 
-  const isNuguIntro = introList && introList.length > 0 ? introList : null;
-
+  const isNuguIntro = Object.keys(introList).length > 0 ? introList : null;
+  console.log("isNuguIntro", isNuguIntro);
   const moveOnintro = () => {
     navigate(`/nuguIntro/write/${uuid}`);
   };
@@ -40,7 +40,7 @@ export const NuguIntro = () => {
         <NavigateBar />
         <img src={BlueCloud} />
         <S.RankingWrapper>
-          <RankingBox NuguIntroRank={introList} />
+          <RankingBox NuguIntroRank={isNuguIntro} />
           <S.GoIntroConT>
             <div id="gointro" onClick={() => moveOnintro()}>
               누구 소개하기

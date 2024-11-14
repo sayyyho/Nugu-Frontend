@@ -23,12 +23,6 @@ export const NuguPatch = () => {
       try {
         const userData = await getNugu();
         setUpdateData(userData);
-        const initialSelectedChips = [
-          userData.keyword1,
-          userData.keyword2,
-          userData.keyword3,
-        ];
-        handleClickStatus(initialSelectedChips);
       } catch (err) {
         console.error("Patch-user정보 가져오기 실패", err);
       }

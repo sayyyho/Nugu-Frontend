@@ -33,6 +33,7 @@ export const postMakingNuguTest = async (answers) => {
 export const getNuguTestResult = async (uuid) => {
   try {
     const response = await instance.get(`/test-results/${uuid}/rankings`);
+    console.log(response);
     return response.data;
   } catch (err) {
     console.log(err);

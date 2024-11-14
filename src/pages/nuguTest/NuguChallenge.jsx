@@ -18,7 +18,7 @@ export const NuguChallenge = () => {
   const navigate = useNavigate();
   const isTestMake = true;
   const moveOnTest = () => {
-    navigate("/challenge/test");
+    navigate(`/challenge/test/${Cookies.get("uuid")}`);
   };
   return (
     <Layout $margin="3rem 0 0 0" $justifyContent="start">

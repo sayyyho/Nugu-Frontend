@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TEST_QUESTION } from "@constants/nuguTest";
 import { useRecoilState } from "recoil";
 import { isMakeTestOwner } from "@atoms/nuguTestState";
+import { postMakingNuguTest } from "@apis/nuguTest";
 
 export const useMakeNuguTest = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const useMakeNuguTest = () => {
     });
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = async () => {
     if (currentQuestion < TEST_QUESTION.length - 1) {
       setAnswerHistory((prevHistory) => [
         ...prevHistory,
@@ -35,8 +36,13 @@ export const useMakeNuguTest = () => {
         ...prevHistory,
         selectedAnswer[currentQuestion],
       ]);
+      await postData(selectedAnswer);
       setIsMakeTest(true);
     }
+  };
+
+  const postData = async (answers) => {
+    await postMakingNuguTest(answers);
   };
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import * as S from "./styled";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Layout } from "@components/common/layout/Layout";
 import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
@@ -14,16 +14,25 @@ import Cookies from "js-cookie";
 
 export const NuguTestPage = () => {
   const [isMakeTest, setIsMakeTest] = useRecoilState(isMakeTestOwner);
+  const [participants, setParticipants] = useState(0);
   const navigate = useNavigate();
 
-  const sampleArray = []; // TODO - API 연동 후
+  const sampleArray = [
+    {
+      nickname: "응시자1",
+      correctAnswers: 7,
+      rank: 1,
+      totalParticipants: 1,
+    },
+  ];
 
   useEffect(() => {
     const fetchTestStatus = async () => {
       try {
-        const hasTest = await getNuguTestStatus();
+        const data = await getNuguTestStatus();
+        setIsMakeTest(data.hasTest);
+        setParticipants(Number(data.totalParticipants));
         console.log("hasTest :", hasTest);
-        // setIsMakeTest(hasTest);
       } catch (error) {
         console.error("실패", error);
       }
@@ -41,12 +50,12 @@ export const NuguTestPage = () => {
       <NavigateBar />
       <S.TestContainer>
         {isMakeTest ? (
-          sampleArray.length === 0 ? (
+          participants ? (
             <NuguTestNone isTestOwner={true} />
           ) : (
             <NuguTestTrue
-              username={Cookies.get("nickname")}
-              ranking={sampleArray}
+              username={sampleArray[0].nickname}
+              ranking={sampleArray[0].rank}
             />
           )
         ) : (

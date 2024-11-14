@@ -6,18 +6,13 @@ export const getNuguTestStatus = async () => {
     const accessToken = Cookies.get("access_token");
 
     if (!accessToken) {
-      console.error("토큰이 없습니다. 인증이 필요합니다.");
+      console.log("세션 만료");
     }
 
     const response = await instance.get("/tests/status", {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-
-    if (response) {
-      console.log("테스트 상태 확인:", response);
-      return true;
-    }
-    return false;
+    return response.data;
   } catch (err) {
     console.error("테스트 상태 확인 중 오류가 발생했습니다:", err);
     throw err;

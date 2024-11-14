@@ -24,6 +24,7 @@ export const NuguTestPage = () => {
       try {
         const hasTest = await getNuguTestStatus();
         //누구 테스트 사용자-get
+        console.log("hasTest :", hasTest);
         setIsMakeTest(hasTest);
       } catch (error) {
         console.error("실패", error);

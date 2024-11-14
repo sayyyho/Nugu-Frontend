@@ -39,3 +39,14 @@ export const getNuguTestResult = async (uuid) => {
     console.log(err);
   }
 };
+
+export const postGuestTest = async (data, uuid) => {
+  try {
+    const response = await instance.post(`/test-results/submit/${uuid}`, {
+      ...data,
+    });
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+  }
+};

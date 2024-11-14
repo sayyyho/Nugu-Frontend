@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { TEST_QUESTION } from "@constants/nuguTest";
-import { getNuguTestResult } from "@apis/nuguTest";
+import { getNuguTestResult, postGuestTest } from "@apis/nuguTest";
+
+import { useRecoilValue } from "recoil";
+import { testUser } from "@atoms/testUser";
+
 import Cookies from "js-cookie";
 
 export const useChallengeTest = () => {
@@ -12,6 +16,7 @@ export const useChallengeTest = () => {
   const [isChallenge, setIsChallenge] = useState(false);
   const [isCheckTotalRanking, setIsCheckTotalRanking] = useState(false);
   const [result, setResult] = useState([]);
+  const nickname = useRecoilValue(testUser);
 
   const handleAnswerSelect = (answer) => {
     const updatedAnswers = [...selectedAnswer];
@@ -32,6 +37,10 @@ export const useChallengeTest = () => {
         selectedAnswer[currentQuestion],
       ]);
       console.log("접속자가 선택한 답: ", answerHistory);
+      await postGuestTest(
+        { nickname: nickname, userAnswers: answerHistory },
+        Cookies.get("uuid")
+      );
       const result = await getNuguTestResult(Cookies.get("uuid"));
       setResult(result);
       setIsChallenge(true);

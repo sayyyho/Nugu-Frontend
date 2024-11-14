@@ -1,4 +1,5 @@
 import * as S from "./styled";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { Layout } from "@components/common/layout/Layout";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
@@ -11,10 +12,24 @@ import { Chip } from "@components/chip/Chip";
 import { CHIP_DATA } from "@constants/chip";
 import { Button } from "@components/common/button/Button";
 import { useNuguPatch } from "./_hooks/useNuguPatch";
+import { getNugu } from "@apis/nuguPatch";
 export const NuguPatch = () => {
   const [updateData, setUpdateData] = useRecoilState(signUpState);
   const { handleSubmit, isFormValid } = useNuguPatch();
   const { selectedChip, handleClickStatus, selectedCount } = usePatchChip();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userData = await getNugu();
+        setUpdateData(userData);
+      } catch (err) {
+        console.error("Patch-user정보 가져오기 실패", err);
+      }
+    };
+
+    fetchUserData();
+  }, [setUpdateData]);
 
   const handleInputChange = (name, value) => {
     setUpdateData((prevData) => ({

@@ -1,8 +1,10 @@
 import { patchNuguInfo } from "@apis/nuguPatch";
 import { useRecoilState } from "recoil";
 import { signUpState } from "@atoms/signUpState";
+import { useNavigate } from "react-router-dom";
 
 export const useNuguPatch = () => {
+  const navigate = useNavigate();
   const [updateData, setUpdateData] = useRecoilState(signUpState);
   const handleSubmit = async () => {
     console.log(updateData);
@@ -17,7 +19,7 @@ export const useNuguPatch = () => {
         keyword2: updateData.keyword2,
         keyword3: updateData.keyword3,
       });
-      //   navigate(-1);
+      navigate(-1);
       return response;
     } catch (err) {
       throw err;

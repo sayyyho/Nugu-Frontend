@@ -1,23 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { signUpState } from "@atoms/signUpState";
 import { CHIP_DATA } from "@constants/chip";
 export const usePatchChip = () => {
   const [updateData, setUpdateData] = useRecoilState(signUpState);
   const [selectedChip, setSelectedChip] = useState(
-    CHIP_DATA.map(
-      (chip) =>
-        updateData.keyword1 === chip ||
-        updateData.keyword2 === chip ||
-        updateData.keyword3 === chip
-    )
+    new Array(CHIP_DATA.length).fill(false)
   );
   const selectedCount = selectedChip.filter((chip) => chip).length;
+
+  useEffect(() => {
+    const initialSelectedChips = [
+      updateData.keyword1,
+      updateData.keyword2,
+      updateData.keyword3,
+    ];
+
+    const updatedChip = [...selectedChip];
+
+    initialSelectedChips.forEach((keyword) => {
+      const index = CHIP_DATA.indexOf(keyword);
+      if (index !== -1) {
+        updatedChip[index] = true;
+      }
+    });
+
+    setSelectedChip(updatedChip);
+  }, [updateData]);
 
   const handleClickStatus = (index) => {
     const updatedChip = [...selectedChip];
     console.log(updatedChip);
     updatedChip[index] = !updatedChip[index];
+
     if (updatedChip.filter((chip) => chip).length > 3) {
       return;
     }

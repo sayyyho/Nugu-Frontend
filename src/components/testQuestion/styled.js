@@ -31,6 +31,7 @@ export const AnswerBox = styled.div`
   align-items: center;
   gap: 10px;
   align-self: stretch;
+  cursor: pointer;
   border-radius: 15px;
   ${({ theme }) => theme.fonts.pretendardB4}
 

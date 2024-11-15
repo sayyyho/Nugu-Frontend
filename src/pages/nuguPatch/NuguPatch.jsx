@@ -24,7 +24,7 @@ export const NuguPatch = () => {
         const userData = await getNugu();
         if (userData.insta_url) {
           const instaUsername = userData.insta_url.replace(
-            "https://instagram.com/",
+            "https://www.instagram.com/",
             ""
           );
           console.log("instaUsername", instaUsername);

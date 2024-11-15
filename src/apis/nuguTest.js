@@ -5,7 +5,7 @@ export const getNuguTestStatus = async () => {
   try {
     const response = await instance.get("/tests/status", {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${Cookies.get("access_token")}`,
       },
     });
     return response.data;
@@ -19,7 +19,7 @@ export const getNuguTestRanking = async () => {
   try {
     const response = await instance.get("/test-results/rankings", {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${Cookies.get("access_token")}`,
       },
     });
     return response.data;
@@ -37,7 +37,7 @@ export const postMakingNuguTest = async (answers) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
         },
       }
     );

@@ -11,8 +11,6 @@ export const patchNuguInfo = async ({
   keyword3,
 }) => {
   try {
-    const accessToken = Cookies.get("access_token");
-
     const response = await instance.patch(
       "/user",
       {
@@ -27,7 +25,7 @@ export const patchNuguInfo = async ({
       },
       {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
         },
       }
     );

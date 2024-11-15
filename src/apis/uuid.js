@@ -3,7 +3,11 @@ import Cookies from "js-cookie";
 
 export const getUUID = async () => {
   try {
-    const response = await instance.get("/user/uuid");
+    const response = await instance.get("/user/uuid", {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("access_token")}`,
+      },
+    });
     const uuid = response.data;
     if (uuid) {
       Cookies.set("uuid", uuid, {

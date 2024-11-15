@@ -1,5 +1,4 @@
 import { instance } from "./instance";
-import Cookies from "js-cookie";
 export const getIntroList = async (uuid) => {
   try {
     const response = await instance.get(`/intro/${uuid}`);

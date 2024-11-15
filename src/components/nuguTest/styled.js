@@ -7,7 +7,7 @@ export const TestContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  padding-top: 5rem;
+  padding-top: 5.5rem;
 `;
 
 export const FirstTextWrapper = styled.div`
@@ -60,7 +60,8 @@ export const UserRankWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   width: 100%;
-  margin-top: 2rem;
+  min-height: 100vh;
+  margin: 2rem 0;
 `;
 export const UserTextWrapper = styled.div`
   display: flex;

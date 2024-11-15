@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   gap: 4rem;
   width: 100%;
-  height: calc(var(--vh, 1vh) * 100);
+  min-height: 100vh;
   padding: 1rem 0;
 `;
 

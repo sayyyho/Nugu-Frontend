@@ -55,8 +55,6 @@ export const UserRankWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-self: flex-start;
-  align-self: flex-start;
-  justify-content: center;
   flex-direction: column;
   gap: 3rem;
   width: 100%;

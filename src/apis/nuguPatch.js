@@ -38,7 +38,15 @@ export const patchNuguInfo = async ({
 
 export const getNugu = async () => {
   try {
-    const response = await instance.get(`/user`);
+    const response = await instance.get(
+      `/user`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
+        },
+      }
+    );
     return response.data;
   } catch (err) {
     throw err;

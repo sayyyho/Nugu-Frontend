@@ -60,7 +60,8 @@ export const UserRankWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   width: 100%;
-  margin-top: 2rem;
+  min-height: 100vh;
+  margin: 2rem 0;
 `;
 export const UserTextWrapper = styled.div`
   display: flex;

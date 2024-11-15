@@ -73,7 +73,7 @@ export const postGuestTest = async (data, uuid) => {
 export const getUserTestAnswer = async (uuid) => {
   try {
     const response = await instance.get(`/tests/${uuid}/answers`);
-    return response.data;
+    return response;
   } catch (err) {
     throw err;
   }

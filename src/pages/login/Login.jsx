@@ -3,7 +3,7 @@ import React from "react";
 
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 import { Logo } from "@components/common/logo/Logo";
 import { Button } from "@components/common/button/Button";
 import { Input } from "@components/input/Input";
@@ -18,7 +18,19 @@ import StarNugu from "/images/StarNugu.png";
 
 export const Login = () => {
   const { form, handleChange, isValid } = useForm(loginState);
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (form.username.length === 0 || form.username.length > 20) {
+      newErrors.username = "아이디는 20자 이내로 작성해주세요.";
+    }
+    if (form.password.length < 8 || form.password.length > 16) {
+      newErrors.password = "비밀번호는 8-16자로 작성해주세요.";
+    }
+    return newErrors;
+  };
 
   const performAPI = async () => {
     try {
@@ -36,7 +48,13 @@ export const Login = () => {
   };
 
   const handleLogin = () => {
-    performAPI();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      setErrors({});
+      performAPI();
+    }
   };
 
   return (
@@ -53,6 +71,9 @@ export const Login = () => {
               onChange={handleChange}
               placeholder={"아이디를 입력해 주세요"}
             />
+            {errors.username && (
+              <S.ErrorMessage>{errors.username}</S.ErrorMessage>
+            )}
             <Input
               title={"비밀번호"}
               name="password"
@@ -61,6 +82,9 @@ export const Login = () => {
               placeholder={"비밀번호를 입력해 주세요"}
               type="password"
             />
+            {errors.password && (
+              <S.ErrorMessage>{errors.password}</S.ErrorMessage>
+            )}
           </S.BtnContainer>
           <Button disabled={!isValid} onClick={handleLogin}>
             로그인

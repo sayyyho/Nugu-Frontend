@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
   gap: 3rem;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
   padding-top: 1rem;
 `;
 

@@ -50,18 +50,10 @@ export const ChallengerTest = () => {
   const ResulthighlightIndex = result?.findIndex(
     (user) => user.id === challengerId
   );
-  console.log("ResulthighlightIndex", ResulthighlightIndex);
-  console.log(
-    "selectedAnswer[currentQuestion]",
-    selectedAnswer[currentQuestion]
-  );
-  console.log("rank[currentQuestion]", rank[currentQuestion]);
+
   //정답 비교
-  const isAnswerinCorrect =
-    selectedAnswer[currentQuestion] === null
-      ? null
-      : parseInt(rank[currentQuestion], 10) ===
-        parseInt(selectedAnswer[currentQuestion], 10)
+  const isAnswerCorrect =
+    Number(rank[currentQuestion]) == selectedAnswer[currentQuestion]
       ? true
       : false;
 
@@ -96,7 +88,7 @@ export const ChallengerTest = () => {
             handleAnswerSelect={handleAnswerSelect}
             handleNextQuestion={handleNextQuestion}
             TEST_QUESTION={TEST_QUESTION}
-            isAnswerinCorrect={isAnswerinCorrect}
+            isAnswerCorrect={isAnswerCorrect}
             isAnswerSelected={isAnswerSelected}
           />
         )}

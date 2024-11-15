@@ -1,15 +1,20 @@
 //접속자뷰- 누구테스트진행 및 결과 확인
 
 import * as S from "./styled";
+import { useState, useEffect } from "react";
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { TestQuestion } from "@components/testQuestion/TestQuestion";
 import { TEST_QUESTION } from "@constants/nuguTest";
 import { CompleteTest } from "@components/nuguTest/CompleteTest";
 import { TestRanking } from "@components/nuguTest/TestRanking";
 import { useChallengeTest } from "./_hooks/useChallengeTest";
+import { getUserTestAnswer } from "@apis/nuguTest";
 import Cookies from "js-cookie";
+
 export const ChallengerTest = () => {
+  const [rank, setRank] = useState(null);
   const {
+    challengerId,
     result,
     selectedAnswer,
     currentQuestion,
@@ -20,10 +25,26 @@ export const ChallengerTest = () => {
     handleIsClickChange,
   } = useChallengeTest();
 
-  const rank = [0, 1, 1, 1, 0, 0, 1, 0, 1, 1]; // 서버에서 받아올 값
-  const isAnswerinCorrect =
-    rank[currentQuestion] !== selectedAnswer[currentQuestion];
-  const isAnswerSelected = selectedAnswer[currentQuestion] !== null; // 답 선택 여부
+  useEffect(() => {
+    const fetchRank = async () => {
+      try {
+        const reponse = await getUserTestAnswer();
+        setRank(reponse);
+      } catch (error) {
+        console.error("getUserTestAnswer 못받아옴:", error);
+      }
+    };
+
+    fetchRank();
+  }, []);
+  const userInfo = rank?.find((user) => user.id === challengerId);
+  const ResulthighlightIndex = rank?.findIndex(
+    (user) => user.id === challengerId
+  );
+  const isAnswerinCorrect = rank
+    ? rank[currentQuestion] !== selectedAnswer[currentQuestion]
+    : false;
+  const isAnswerSelected = selectedAnswer[currentQuestion] !== null;
   return (
     <>
       <ProgressBar
@@ -36,10 +57,10 @@ export const ChallengerTest = () => {
           isCheckTotalRanking ? (
             <TestRanking
               username={Cookies.get("nickname")}
-              correctAnswers={result[0].correctAnswers}
-              rank={result[0].rank}
+              correctAnswers={userInfo?.correctAnswers}
+              rank={userInfo?.rank}
               ranking={result}
-              highlightIndex={0}
+              highlightIndex={ResulthighlightIndex}
             />
           ) : (
             <CompleteTest

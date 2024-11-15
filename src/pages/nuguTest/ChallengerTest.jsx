@@ -60,7 +60,8 @@ export const ChallengerTest = () => {
   const isAnswerinCorrect =
     selectedAnswer[currentQuestion] === null
       ? null
-      : rank[currentQuestion] === selectedAnswer[currentQuestion]
+      : parseInt(rank[currentQuestion], 10) ===
+        parseInt(selectedAnswer[currentQuestion], 10)
       ? true
       : false;
 

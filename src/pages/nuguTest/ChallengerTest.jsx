@@ -32,7 +32,7 @@ export const ChallengerTest = () => {
     const fetchRank = async () => {
       try {
         const reponse = await getUserTestAnswer(uuid);
-        setRank(reponse);
+        setRank(reponse.data);
       } catch (error) {
         console.error("getUserTestAnswer 못받아옴:", error);
       }
@@ -52,9 +52,10 @@ export const ChallengerTest = () => {
   );
   console.log("ResulthighlightIndex", ResulthighlightIndex);
   console.log(
-    "selectedAnswer[currentQuestion]/rank[currentQuestion]",
-    selectedAnswer[currentQuestion] / rank[currentQuestion]
+    "selectedAnswer[currentQuestion]",
+    selectedAnswer[currentQuestion]
   );
+  console.log("rank[currentQuestion]", rank[currentQuestion]);
   //정답 비교
   const isAnswerinCorrect =
     selectedAnswer[currentQuestion] === null

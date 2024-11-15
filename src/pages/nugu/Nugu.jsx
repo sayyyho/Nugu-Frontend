@@ -43,9 +43,7 @@ export const Nugu = () => {
             <S.NuguTitle>{data.nickname}의 누구</S.NuguTitle>
             <S.Image
               src={"/images/insta.svg"}
-              onClick={() =>
-                (window.location.href = `https://instagram.com/${data.instaUrl}`)
-              }
+              onClick={() => (window.location.href = data.instaUrl)}
             />
           </S.MainTextWrapper>
           <S.MBTITitle>{data.mbti}</S.MBTITitle>

@@ -46,3 +46,9 @@ export const ChipWrapper = styled.div`
 
   margin-top: 1rem;
 `;
+export const ErrorMessage = styled.p`
+  color: ${({ theme }) => theme.colors.red200};
+  ${({ theme }) => theme.fonts.pretendardB4};
+
+  font-size: 0.8rem;
+`;

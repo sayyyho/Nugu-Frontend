@@ -15,7 +15,7 @@ import { useNuguPatch } from "./_hooks/useNuguPatch";
 import { getNugu } from "@apis/nuguPatch";
 export const NuguPatch = () => {
   const [updateData, setUpdateData] = useRecoilState(signUpState);
-  const { handleSubmit, isFormValid } = useNuguPatch();
+  const { errors, handleSubmit, isFormValid } = useNuguPatch();
   const { selectedChip, handleClickStatus, selectedCount } = usePatchChip();
 
   useEffect(() => {
@@ -59,13 +59,17 @@ export const NuguPatch = () => {
         <S.TopWrapper>
           <ProgressBar title={"누구 수정하기"} $now={4} $total={4} />
           {[...SIGN_UP_FIELDS[1], ...SIGN_UP_FIELDS[2]].map((data, index) => (
-            <Input
-              title={data.title}
-              key={index}
-              value={updateData[data.name] || ""}
-              onChange={(e) => handleInputChange(data.name, e.target.value)}
-              type={data.type}
-            />
+            <div key={index}>
+              <Input
+                title={data.title}
+                value={updateData[data.name] || ""}
+                onChange={(e) => handleInputChange(data.name, e.target.value)}
+                type={data.type}
+              />
+              {errors[data.name] && (
+                <S.ErrorMessage>{errors[data.name]}</S.ErrorMessage>
+              )}
+            </div>
           ))}
 
           <S.TitleWrapper>

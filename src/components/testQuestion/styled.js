@@ -34,9 +34,9 @@ export const AnswerBox = styled.div`
   border-radius: 15px;
   ${({ theme }) => theme.fonts.pretendardB4}
 
-  box-shadow: ${({ $isSelected, $isAnswerinCorrect }) =>
+  box-shadow: ${({ $isSelected, $isAnswerCorrect }) =>
     $isSelected
-      ? $isAnswerinCorrect // 정답인지 확인
+      ? $isAnswerCorrect // 정답인지 확인
         ? "0px 0px 10px 0px rgba(55, 130, 237, 0.50)" //파
         : "0px 0px 10px 0px rgba(255, 0, 0, 0.50)" //빨
       : "none"};

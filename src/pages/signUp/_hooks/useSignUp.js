@@ -69,10 +69,10 @@ export const useSignUp = (page) => {
     }
 
     if (Number(page) === 3) {
-      setSignUpData((prevData) => ({
-        ...prevData,
-        insta_url: `https://instagram.com/${signUpData.insta_url}`,
-      }));
+      // setSignUpData((prevData) => ({
+      //   ...prevData,
+      //   insta_url: `https://instagram.com/${signUpData.insta_url}`,
+      // }));
       navigate("/signUp/submit");
     } else {
       navigate(nextPath);

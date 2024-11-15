@@ -51,7 +51,6 @@ export const useNuguPatch = () => {
   };
   const checkFieldValidity = (value, fieldName) => {
     let error = "";
-    // 각 필드에 대한 유효성 검사
     if (fieldName === "username" && (value.length === 0 || value.length > 20)) {
       error = "아이디는 20자 이내로 작성해주세요.";
     } else if (
@@ -62,10 +61,9 @@ export const useNuguPatch = () => {
     } else if (fieldName === "nickname" && value.length > 5) {
       error = "닉네임은 5자 이내로 작성해주세요.";
     } else if (fieldName === "mbti") {
-      value = value.trim(); // 공백 제거
-      // 영문 4자 검사
+      value = value.trim();
       if (value && !/^[A-Za-z]{4}$/.test(value)) {
-        error = "MBTI는 영문 4자로 입력해주세요."; // 오류 메시지
+        error = "MBTI는 영문 4자로 입력해주세요.";
       }
     } else if (fieldName === "organization" && value.length > 30) {
       error = "소속은 30자 이내로 작성해주세요.";

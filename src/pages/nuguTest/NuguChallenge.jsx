@@ -16,7 +16,6 @@ import Cookies from "js-cookie";
 export const NuguChallenge = () => {
   const setTestUser = useSetRecoilState(testUser);
   const navigate = useNavigate();
-  const isTestMake = true;
 
   const moveOnTest = () => {
     navigate(`/challenge/test/${Cookies.get("uuid")}`);

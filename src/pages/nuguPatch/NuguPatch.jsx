@@ -22,7 +22,18 @@ export const NuguPatch = () => {
     const fetchUserData = async () => {
       try {
         const userData = await getNugu();
-        setUpdateData(userData);
+        if (userData.insta_url) {
+          const instaUsername = userData.insta_url.replace(
+            "https://www.instagram.com/",
+            ""
+          );
+          setUpdateData({
+            ...userData,
+            insta_url: instaUsername,
+          });
+        } else {
+          setUpdateData(userData);
+        }
       } catch (err) {
         console.error("Patch-user정보 가져오기 실패", err);
       }

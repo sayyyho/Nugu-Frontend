@@ -84,7 +84,9 @@ export const WriteIntro = () => {
           </S.TitleWrapper>
         </S.InfoWrapper>
         <Button
-          disabled={selectedCount !== 3 || content.length === 0}
+          disabled={
+            selectedCount !== 3 || content.length === 0 || content.length > 150
+          }
           onClick={handleSubmit}
         >
           저장하기

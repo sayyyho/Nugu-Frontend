@@ -11,6 +11,7 @@ import { useForm } from "@hooks/useForm";
 import { loginState } from "@atoms/loginState";
 import { postLogin } from "@apis/login";
 import { getUUID } from "@apis/uuid";
+import { Layout } from "@components/common/layout/Layout";
 
 import NuguLogo from "/images/SmallLogo.png";
 import StarNugu from "/images/StarNugu.png";
@@ -39,31 +40,33 @@ export const Login = () => {
   };
 
   return (
-    <S.Wrapper>
-      <Logo logo={NuguLogo} />
-      <S.ImgWrapper>
-        <img src={StarNugu} alt="starnugu" loading="lazy" />
-        <S.BtnContainer>
-          <Input
-            title={"아이디"}
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-            placeholder={"아이디를 입력해 주세요"}
-          />
-          <Input
-            title={"비밀번호"}
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            placeholder={"비밀번호를 입력해 주세요"}
-            type="password"
-          />
-        </S.BtnContainer>
-        <Button disabled={!isValid} onClick={handleLogin}>
-          로그인
-        </Button>
-      </S.ImgWrapper>
-    </S.Wrapper>
+    <Layout $backgroundColor={"gray200"} $justifyContent="start">
+      <S.Wrapper>
+        <Logo logo={NuguLogo} />
+        <S.ImgWrapper>
+          <img src={StarNugu} alt="starnugu" loading="lazy" />
+          <S.BtnContainer>
+            <Input
+              title={"아이디"}
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              placeholder={"아이디를 입력해 주세요"}
+            />
+            <Input
+              title={"비밀번호"}
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              placeholder={"비밀번호를 입력해 주세요"}
+              type="password"
+            />
+          </S.BtnContainer>
+          <Button disabled={!isValid} onClick={handleLogin}>
+            로그인
+          </Button>
+        </S.ImgWrapper>
+      </S.Wrapper>
+    </Layout>
   );
 };

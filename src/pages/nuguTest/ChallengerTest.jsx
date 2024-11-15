@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 
 export const ChallengerTest = () => {
   const { uuid } = useParams();
-  const [rank, setRank] = useState(null);
+  const [rank, setRank] = useState([]);
   const {
     challengerId,
     result,
@@ -54,9 +54,11 @@ export const ChallengerTest = () => {
   //정답 비교
   const isAnswerinCorrect =
     selectedAnswer[currentQuestion] !== null &&
+    Array.isArray(rank) &&
     rank[currentQuestion] !== undefined
       ? rank[currentQuestion] === selectedAnswer[currentQuestion]
-      : null;
+      : false;
+
   const isAnswerSelected = selectedAnswer[currentQuestion] !== null;
   return (
     <>

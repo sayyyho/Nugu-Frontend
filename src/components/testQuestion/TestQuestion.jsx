@@ -15,6 +15,8 @@ export const TestQuestion = ({
       handleAnswerSelect(index);
     }
   };
+  console.log("isAnswerinCorrect:", isAnswerinCorrect);
+
   return (
     <S.Container>
       <S.TestQuestionWrapper>
@@ -28,7 +30,9 @@ export const TestQuestion = ({
               key={index}
               onClick={() => handleSelect(index)}
               $isSelected={selectedAnswer[currentQuestion] === index}
-              $isAnswerinCorrect={isAnswerinCorrect} // 정답 여부 처리
+              $isAnswerinCorrect={
+                isAnswerinCorrect && selectedAnswer[currentQuestion] === index
+              }
             >
               {answer}
             </S.AnswerBox>

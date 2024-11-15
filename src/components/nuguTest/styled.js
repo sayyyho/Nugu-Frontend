@@ -7,7 +7,7 @@ export const TestContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  padding-top: 5rem;
+  padding-top: 5.5rem;
 `;
 
 export const FirstTextWrapper = styled.div`

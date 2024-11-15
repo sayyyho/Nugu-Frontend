@@ -39,7 +39,7 @@ export const NavigateBar = () => {
                 ? `/nuguIntro/${Cookies.get("uuid")}`
                 : isTokenAvailable
                 ? "/test"
-                : "/challenge"
+                : `/challenge/${Cookies.get("uuid")}`
             )
               ? "active"
               : ""

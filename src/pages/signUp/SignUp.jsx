@@ -18,7 +18,7 @@ export const SignUp = () => {
   const signUpData = useRecoilValue(signUpState);
 
   const { allFilled, validateField, resetValidation } = useValidation(page);
-  const { handleInputChange, handleNextClick } = useSignUp(page);
+  const { errors, handleInputChange, handleNextClick } = useSignUp(page);
 
   return (
     <Layout $backgroundColor={"gray200"}>
@@ -26,22 +26,27 @@ export const SignUp = () => {
         <S.TopWrapper>
           <ProgressBar title={"누구 생성하기"} $now={Number(page)} $total={4} />
           {SIGN_UP_FIELDS[Number(page) - 1].map((data, index) => (
-            <Input
-              title={data.title}
-              placeholder={data.placeholder}
-              key={index}
-              value={signUpData[data.name] || ""}
-              onChange={(e) =>
-                handleInputChange(
-                  data.name,
-                  e.target.value,
-                  index,
-                  data.name,
-                  validateField
-                )
-              }
-              type={data.type}
-            />
+            <div key={index}>
+              <Input
+                title={data.title}
+                placeholder={data.placeholder}
+                key={index}
+                value={signUpData[data.name] || ""}
+                onChange={(e) =>
+                  handleInputChange(
+                    data.name,
+                    e.target.value,
+                    index,
+                    data.name,
+                    validateField
+                  )
+                }
+                type={data.type}
+              />
+              {errors[data.name] && (
+                <S.ErrorMessage>{errors[data.name]}</S.ErrorMessage>
+              )}
+            </div>
           ))}
         </S.TopWrapper>
 

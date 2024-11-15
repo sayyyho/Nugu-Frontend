@@ -53,10 +53,10 @@ export const ChallengerTest = () => {
   console.log(ResulthighlightIndex);
   //정답 비교
   const isAnswerinCorrect =
-    selectedAnswer[currentQuestion] !== null &&
-    Array.isArray(rank) &&
-    rank[currentQuestion] !== undefined
-      ? rank[currentQuestion] === selectedAnswer[currentQuestion]
+    selectedAnswer[currentQuestion] === null
+      ? null
+      : rank[currentQuestion] === selectedAnswer[currentQuestion]
+      ? true
       : false;
 
   const isAnswerSelected = selectedAnswer[currentQuestion] !== null;

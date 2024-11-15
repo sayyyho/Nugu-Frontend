@@ -72,3 +72,9 @@ export const NuguSubText = styled.h1`
 export const NuguCreateImg = styled.img`
   height: 11rem;
 `;
+export const ErrorMessage = styled.p`
+  color: ${({ theme }) => theme.colors.red200};
+  ${({ theme }) => theme.fonts.pretendardB4};
+
+  font-size: 0.8rem;
+`;

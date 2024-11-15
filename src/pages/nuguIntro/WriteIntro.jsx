@@ -50,14 +50,20 @@ export const WriteIntro = () => {
       <S.IntroContainer>
         <ProgressBar title={"누구 소개하기"} $now={4} $total={4} />
         <S.InfoWrapper>
-          <Input
-            title={"누구를 소개하자면?"}
-            name="content"
-            placeholder={"누구 소개를 입력해 주세요 (150자 이내)"}
-            value={content}
-            onChange={handleChangeContent}
-          />
-
+          <div>
+            <Input
+              title={"누구를 소개하자면?"}
+              name="content"
+              placeholder={"누구 소개를 입력해 주세요 (150자 이내)"}
+              value={content}
+              onChange={handleChangeContent}
+            />
+            {content.length > 150 && (
+              <S.WarningMessage>
+                누구 소개는 150자 이내로 입력해 주세요.
+              </S.WarningMessage>
+            )}
+          </div>
           <S.TitleWrapper>
             <S.Title>나를 표현하는 키워드</S.Title>
             <S.SubTitle>나와 어울리는 키워드 3개를 선택해주세요</S.SubTitle>

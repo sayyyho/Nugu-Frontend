@@ -37,7 +37,9 @@ export const useNuguPatch = () => {
         nickname: updateData.nickname,
         mbti: updateData.mbti,
         org: updateData.org,
-        insta_url: updateData.insta_url,
+        insta_url: insta_url
+          ? `https://www.instagram.com/${updateData.insta_url}`
+          : "",
         intro: updateData.intro,
         keyword1: updateData.keyword1,
         keyword2: updateData.keyword2,

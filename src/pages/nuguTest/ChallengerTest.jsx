@@ -52,9 +52,11 @@ export const ChallengerTest = () => {
   );
   console.log(ResulthighlightIndex);
   //정답 비교
-  const isAnswerinCorrect = rank
-    ? rank[currentQuestion] === selectedAnswer[currentQuestion]
-    : false;
+  const isAnswerinCorrect =
+    selectedAnswer[currentQuestion] !== null &&
+    rank[currentQuestion] !== undefined
+      ? rank[currentQuestion] === selectedAnswer[currentQuestion]
+      : null;
   const isAnswerSelected = selectedAnswer[currentQuestion] !== null;
   return (
     <>

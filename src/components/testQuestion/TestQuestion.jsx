@@ -10,6 +10,11 @@ export const TestQuestion = ({
   isAnswerinCorrect, //정답이 맞는지-접속자
   isAnswerSelected, //선택되었는지 - 소유자
 }) => {
+  const handleSelect = (index) => {
+    if (selectedAnswer[currentQuestion] === null) {
+      handleAnswerSelect(index);
+    }
+  };
   return (
     <S.Container>
       <S.TestQuestionWrapper>
@@ -21,7 +26,7 @@ export const TestQuestion = ({
           return (
             <S.AnswerBox
               key={index}
-              onClick={() => handleAnswerSelect(index)}
+              onClick={() => handleSelect(index)}
               $isSelected={selectedAnswer[currentQuestion] === index}
               $isAnswerinCorrect={isAnswerinCorrect} // 정답 여부 처리
             >

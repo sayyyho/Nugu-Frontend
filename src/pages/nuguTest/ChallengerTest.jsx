@@ -33,6 +33,7 @@ export const ChallengerTest = () => {
       try {
         const reponse = await getUserTestAnswer(uuid);
         setRank(reponse);
+        console.log("누구테스트 정답", rank);
       } catch (error) {
         console.error("getUserTestAnswer 못받아옴:", error);
       }
@@ -40,12 +41,16 @@ export const ChallengerTest = () => {
 
     fetchRank();
   }, []);
-  const userInfo = rank?.find((user) => user.id === challengerId);
-  const ResulthighlightIndex = rank?.findIndex(
+
+  const userInfo = result?.find((user) => user.id === challengerId);
+  console.log(userInfo);
+  const ResulthighlightIndex = result?.findIndex(
     (user) => user.id === challengerId
   );
+  console.log(ResulthighlightIndex);
+  //정답 비교
   const isAnswerinCorrect = rank
-    ? rank[currentQuestion] !== selectedAnswer[currentQuestion]
+    ? rank[currentQuestion] === selectedAnswer[currentQuestion]
     : false;
   const isAnswerSelected = selectedAnswer[currentQuestion] !== null;
   return (

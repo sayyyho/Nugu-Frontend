@@ -12,11 +12,14 @@ import { loginState } from "@atoms/loginState";
 import { postLogin } from "@apis/login";
 import { getUUID } from "@apis/uuid";
 import { Layout } from "@components/common/layout/Layout";
+import { ToastContainer } from "@components/toast/Toast";
+import { useToast } from "@hooks/useToast";
 
 import NuguLogo from "/images/SmallLogo.png";
 import StarNugu from "/images/StarNugu.png";
 
 export const Login = () => {
+  const { showToast, toast } = useToast();
   const { form, handleChange, isValid } = useForm(loginState);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -35,6 +38,7 @@ export const Login = () => {
   const performAPI = async () => {
     try {
       await postLogin(form);
+      showToast("로그인 성공", "success");
       await getUUID();
       const uuid = Cookies.get("uuid");
       if (uuid) {
@@ -43,7 +47,7 @@ export const Login = () => {
         console.error("UUID를 찾을 수 없습니다.");
       }
     } catch (error) {
-      console.error("로그인 요청 중 에러가 발생했습니다:", error);
+      showToast("아이디나 비밀번호를 확인해주세요", "error");
     }
   };
 
@@ -59,6 +63,9 @@ export const Login = () => {
 
   return (
     <Layout $backgroundColor={"gray200"} $justifyContent="start">
+      {toast.visible && (
+        <ToastContainer type={toast.type}>{toast.message}</ToastContainer>
+      )}
       <S.Wrapper>
         <Logo logo={NuguLogo} />
         <S.ImgWrapper>

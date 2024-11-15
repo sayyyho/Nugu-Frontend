@@ -44,7 +44,7 @@ export const WriteIntro = () => {
   return (
     <Layout
       $backgroundColor={"gray200"}
-      $margin="3rem 0 0 0"
+      $margin="0 0 0 0"
       $justifyContent="start"
     >
       <S.IntroContainer>

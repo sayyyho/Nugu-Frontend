@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   width: 100%;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 1rem;
 `;
 export const RankingWrapper = styled.div`
   display: flex;
@@ -45,6 +46,7 @@ export const IntroContainer = styled.div`
   height: 100vh;
   align-items: center;
   gap: 3rem;
+  padding-top: 1rem;
 `;
 
 export const InfoWrapper = styled.div`

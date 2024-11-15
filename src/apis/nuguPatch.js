@@ -14,7 +14,8 @@ export const patchNuguInfo = async ({
       nickname,
       mbti,
       org,
-      insta_url,
+
+      insta_url: insta_url ? `https://www.instagram.com/${insta_url}` : "",
       intro,
       keyword1,
       keyword2,

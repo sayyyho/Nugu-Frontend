@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
   width: 100%;
   height: calc(var(--vh, 1vh) * 100);
   gap: 3rem;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 4rem;
+  padding-top: 1rem;
 `;
 
 export const LogoContainer = styled.div`
@@ -16,6 +16,9 @@ export const LogoContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  @media (max-width: 375px) {
+    gap: 1.5rem;
+  }
 `;
 
 export const BtnContainer = styled.div`

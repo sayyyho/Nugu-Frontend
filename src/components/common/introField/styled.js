@@ -24,6 +24,7 @@ export const Textfield = styled.div`
   height: 70px;
   border: none;
   outline: none;
+  word-break: break-word;
   ${({ theme }) => theme.fonts.pretendardB1};
   color: ${({ theme }) => theme.colors.blue300};
   &::placeholder {

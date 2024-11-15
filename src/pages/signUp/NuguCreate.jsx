@@ -2,13 +2,16 @@ import * as S from "./styled";
 import styled from "styled-components";
 import NUGU_CREATE_IMAGE from "/images/NuguCreateImg.svg";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useRecoilValue } from "recoil";
 import { signUpState } from "@atoms/signUpState";
 
+import { Error } from "@components/error/Error";
+
 import { postSignUp } from "@apis/signUp";
+import { useToast } from "@hooks/useToast";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -25,32 +28,38 @@ export const Wrapper = styled.div`
 export const NuguCreate = () => {
   const signUpData = useRecoilValue(signUpState);
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const performPost = async () => {
       try {
         await postSignUp(signUpData);
+        setTimeout(() => {
+          navigate(`/`);
+        }, 2500);
+        return () => clearTimeout(timer);
       } catch (error) {
+        setIsVisible(false);
         console.error("Sign up failed:", error);
       }
     };
 
     performPost();
-
-    const timer = setTimeout(() => {
-      navigate("/");
-    }, 2500);
-
-    return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
     <Wrapper>
-      <S.TextWrapper>
-        <S.NuguMainText>누구</S.NuguMainText>
-        <S.NuguSubText>를 생성했어요!</S.NuguSubText>
-      </S.TextWrapper>
-      <S.NuguCreateImg src={NUGU_CREATE_IMAGE} alt="누구생성 이미지" />
+      {isVisible ? (
+        <>
+          <S.TextWrapper>
+            <S.NuguMainText>누구</S.NuguMainText>
+            <S.NuguSubText>를 생성했어요!</S.NuguSubText>
+          </S.TextWrapper>
+          <S.NuguCreateImg src={NUGU_CREATE_IMAGE} alt="누구생성 이미지" />
+        </>
+      ) : (
+        <Error title={"동일한 아이디가 존재해요."}></Error>
+      )}
     </Wrapper>
   );
 };

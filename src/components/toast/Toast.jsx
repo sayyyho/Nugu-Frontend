@@ -16,8 +16,8 @@ const slideDown = keyframes`
 export const ToastContainer = styled.div`
   position: fixed;
   top: 0;
-  background-color: ${({ type }) =>
-    type === "success" ? "#4caf50" : "#f44336"}; /* 성공: 초록, 실패: 빨강 */
+  background-color: ${({ type, theme }) =>
+    type === "error" ? theme.colors.red200 : theme.colors.blue300};
   color: white;
   padding: 1rem 2rem;
   border-radius: 0.5rem;

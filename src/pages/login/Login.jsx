@@ -38,11 +38,14 @@ export const Login = () => {
   const performAPI = async () => {
     try {
       await postLogin(form);
-      showToast("로그인 성공", "success");
       await getUUID();
       const uuid = Cookies.get("uuid");
       if (uuid) {
-        navigate(`/nugu/${uuid}`);
+        showToast("로그인 성공", "success");
+
+        setTimeout(() => {
+          navigate(`/nugu/${uuid}`);
+        }, 1500);
       } else {
         console.error("UUID를 찾을 수 없습니다.");
       }

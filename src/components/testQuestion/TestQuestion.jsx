@@ -7,7 +7,7 @@ export const TestQuestion = ({
   handleAnswerSelect,
   handleNextQuestion,
   TEST_QUESTION,
-  isAnswerinCorrect, //정답이 맞는지-접속자
+  isAnswerCorrect, //정답이 맞는지-접속자
   isAnswerSelected, //선택되었는지 - 소유자
 }) => {
   const handleSelect = (index) => {
@@ -15,7 +15,7 @@ export const TestQuestion = ({
       handleAnswerSelect(index);
     }
   };
-  console.log("isAnswerinCorrect:", isAnswerinCorrect);
+  console.log("isAnswerinCorrect:", isAnswerCorrect);
 
   return (
     <S.Container>
@@ -30,8 +30,8 @@ export const TestQuestion = ({
               key={index}
               onClick={() => handleSelect(index)}
               $isSelected={selectedAnswer[currentQuestion] === index}
-              $isAnswerinCorrect={
-                isAnswerinCorrect && selectedAnswer[currentQuestion] === index
+              $isAnswerCorrect={
+                isAnswerCorrect && selectedAnswer[currentQuestion] === index
               }
             >
               {answer}

@@ -9,16 +9,16 @@ export const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(
-  (config) => {
-    // config 매개변수를 받아옵니다.
-    const accessToken = Cookies.get("access_token");
-    if (accessToken) {
-      config.headers["Authorization"] = `Bearer ${accessToken}`;
-    }
-    return config;
-  },
-  () => {
-    console.log("토큰 없음");
-  }
-);
+// instance.interceptors.request.use(
+//   (config) => {
+//     // config 매개변수를 받아옵니다.
+//     const accessToken = Cookies.get("access_token");
+//     if (accessToken) {
+//       config.headers["Authorization"] = `Bearer ${accessToken}`;
+//     }
+//     return config;
+//   },
+//   () => {
+//     console.log("토큰 없음");
+//   }
+// );

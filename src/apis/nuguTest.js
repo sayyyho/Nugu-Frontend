@@ -1,8 +1,13 @@
 import { instance } from "./instance";
+import Cookies from "js-cookie";
 
 export const getNuguTestStatus = async () => {
   try {
-    const response = await instance.get("/tests/status");
+    const response = await instance.get("/tests/status", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     return response.data;
   } catch (err) {
     console.error("테스트 상태 확인 중 오류가 발생했습니다:", err);
@@ -12,7 +17,11 @@ export const getNuguTestStatus = async () => {
 
 export const getNuguTestRanking = async () => {
   try {
-    const response = await instance.get("/test-results/rankings");
+    const response = await instance.get("/test-results/rankings", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     return response.data;
   } catch (err) {
     console.log(err);
@@ -21,9 +30,17 @@ export const getNuguTestRanking = async () => {
 
 export const postMakingNuguTest = async (answers) => {
   try {
-    const response = await instance.post("/tests", {
-      answers,
-    });
+    const response = await instance.post(
+      "/tests",
+      {
+        answers,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
     console.log(response);
   } catch (err) {
     console.log(err);

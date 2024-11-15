@@ -1,22 +1,35 @@
 //접속자 뷰- 누구테스트 홈
 
 import * as S from "./styled";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Layout } from "@components/common/layout/Layout";
 import { NavigateBar } from "@components/common/navigateBar/NavigateBar";
 import { NuguTestNone } from "@components/nuguTest/NuguTestNone";
 import { NuguTestHome } from "@components/nuguTest/NuguTestHome";
 import { Button } from "@components/common/button/Button";
-
+import { getGuestViewIsUserTest } from "@apis/nuguTest";
 import { useSetRecoilState } from "recoil";
 import { testUser } from "@atoms/testUser";
 
 import Cookies from "js-cookie";
 
 export const NuguChallenge = () => {
+  const { uuid } = useParams();
+  const [isTestMake, setIsTestMake] = useState(false);
   const setTestUser = useSetRecoilState(testUser);
   const navigate = useNavigate();
-  const isTestMake = true;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getGuestViewIsUserTest(uuid);
+        setIsTestMake(data.hasTest);
+      } catch (err) {
+        throw err;
+      }
+    };
+    fetchData();
+  }, []);
   //수정 필요
   const moveOnTest = () => {
     navigate(`/challenge/test/${Cookies.get("uuid")}`);

@@ -78,3 +78,12 @@ export const getUserTestAnswer = async (uuid) => {
     throw err;
   }
 };
+
+export const getGuestViewIsUserTest = async (uuid) => {
+  try {
+    const response = await instance.get(`/tests/status/${uuid}`);
+    return response.data;
+  } catch (err) {
+    throw err;
+  }
+};

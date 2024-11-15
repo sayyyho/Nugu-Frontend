@@ -25,7 +25,7 @@ export const NonRankingBox = ({ ranking, highlightIndex = -1, isComplete }) => {
               {user.nickname}
             </S.NickName>
             <S.MyRank $isHighlighted={isHighlighted} $isComplete={isComplete}>
-              {user.rank}/{user.totalParticipants}
+              {user.correctAnswers}/10
             </S.MyRank>
           </S.Wrapper>
         );

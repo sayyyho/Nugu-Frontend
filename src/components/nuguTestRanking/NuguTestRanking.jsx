@@ -32,7 +32,7 @@ export const NuguTestRanking = ({
               {user.nickname}
             </S.NickName>
             <S.MyRank $isHighlighted={isHighlighted} $isComplete={isComplete}>
-              {user.rank}/{user.totalParticipants}
+              {user.correctAnswers}/10
             </S.MyRank>
           </S.Wrapper>
         );

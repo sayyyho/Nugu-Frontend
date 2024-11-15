@@ -33,14 +33,17 @@ export const ChallengerTest = () => {
       try {
         const reponse = await getUserTestAnswer(uuid);
         setRank(reponse);
-        console.log("누구테스트 정답", rank);
       } catch (error) {
         console.error("getUserTestAnswer 못받아옴:", error);
       }
     };
 
     fetchRank();
-  }, []);
+  }, [uuid]);
+
+  useEffect(() => {
+    console.log("누구테스트 정답", rank);
+  }, [rank]);
 
   const userInfo = result?.find((user) => user.id === challengerId);
   console.log(userInfo);

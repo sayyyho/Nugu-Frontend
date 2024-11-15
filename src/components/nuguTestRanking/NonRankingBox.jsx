@@ -12,7 +12,7 @@ export const NonRankingBox = ({ ranking, highlightIndex = -1, isComplete }) => {
   };
   return (
     <>
-      {ranking.map((user, index) => {
+      {ranking.slice(0, 3).map((user, index) => {
         const isHighlighted = highlightIndex !== -1 && index === highlightIndex;
         return (
           <S.Wrapper

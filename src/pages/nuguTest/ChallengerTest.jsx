@@ -2,6 +2,8 @@
 
 import * as S from "./styled";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 import { ProgressBar } from "@components/progressBar/ProgreesBar";
 import { TestQuestion } from "@components/testQuestion/TestQuestion";
 import { TEST_QUESTION } from "@constants/nuguTest";
@@ -12,6 +14,7 @@ import { getUserTestAnswer } from "@apis/nuguTest";
 import Cookies from "js-cookie";
 
 export const ChallengerTest = () => {
+  const { uuid } = useParams();
   const [rank, setRank] = useState(null);
   const {
     challengerId,
@@ -28,7 +31,7 @@ export const ChallengerTest = () => {
   useEffect(() => {
     const fetchRank = async () => {
       try {
-        const reponse = await getUserTestAnswer();
+        const reponse = await getUserTestAnswer(uuid);
         setRank(reponse);
       } catch (error) {
         console.error("getUserTestAnswer 못받아옴:", error);

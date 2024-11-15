@@ -46,11 +46,15 @@ export const ChallengerTest = () => {
   }, [rank]);
 
   const userInfo = result?.find((user) => user.id === challengerId);
-  console.log(userInfo);
+  console.log("userInfo", userInfo);
   const ResulthighlightIndex = result?.findIndex(
     (user) => user.id === challengerId
   );
-  console.log(ResulthighlightIndex);
+  console.log("ResulthighlightIndex", ResulthighlightIndex);
+  console.log(
+    "selectedAnswer[currentQuestion]/rank[currentQuestion]",
+    selectedAnswer[currentQuestion] / rank[currentQuestion]
+  );
   //정답 비교
   const isAnswerinCorrect =
     selectedAnswer[currentQuestion] === null

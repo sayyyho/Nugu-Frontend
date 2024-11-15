@@ -62,8 +62,19 @@ export const postGuestTest = async (data, uuid) => {
     const response = await instance.post(`/test-results/submit/${uuid}`, {
       ...data,
     });
-    console.log(response);
+    console.log(response.data.id);
+
+    return response.data.id;
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const getUserTestAnswer = async () => {
+  try {
+    const response = await instance.get("/tests/answers");
+    return response.data;
+  } catch (err) {
+    throw err;
   }
 };

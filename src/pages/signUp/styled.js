@@ -75,6 +75,6 @@ export const NuguCreateImg = styled.img`
 export const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.colors.red200};
   ${({ theme }) => theme.fonts.pretendardB4};
-
+  padding-left: 5px;
   font-size: 0.8rem;
 `;

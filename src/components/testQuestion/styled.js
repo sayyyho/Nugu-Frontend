@@ -42,16 +42,16 @@ export const AnswerBox = styled.div`
       : "none"};
 
   border: 1px solid
-    ${({ theme, $isSelected, $isAnswerinCorrect }) =>
+    ${({ theme, $isSelected, $isAnswerCorrect }) =>
       $isSelected
-        ? $isAnswerinCorrect
+        ? $isAnswerCorrect
           ? theme.colors.blue300
           : theme.colors.red200
         : theme.colors.blue300};
 
-  background: ${({ theme, $isSelected, $isAnswerinCorrect }) =>
+  background: ${({ theme, $isSelected, $isAnswerCorrect }) =>
     $isSelected
-      ? $isAnswerinCorrect
+      ? $isAnswerCorrect
         ? theme.colors.blue100
         : theme.colors.red100
       : theme.colors.gray100};

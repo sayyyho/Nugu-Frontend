@@ -5,10 +5,13 @@ import { Chip } from "@components/chip/Chip";
 
 import { useParams, useNavigate } from "react-router-dom";
 import { useNuguInfo } from "./_hooks/useNuguInfo";
+import { useToast } from "@hooks/useToast";
+import { ToastContainer } from "@components/toast/Toast";
 
 export const Nugu = () => {
   const { uuid } = useParams();
   const { data, isAdmin } = useNuguInfo(uuid);
+  const { toast, showToast } = useToast();
   const navigate = useNavigate();
   const moveOnPatch = () => {
     navigate(`/nugu/patch/${uuid}`);
@@ -18,9 +21,11 @@ export const Nugu = () => {
     navigator.clipboard
       .writeText(currentUrl)
       .then(() => {
-        alert("공유 링크가 복사되었어요!");
+        showToast("공유링크 복사완료!", "success");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <Layout
@@ -28,6 +33,9 @@ export const Nugu = () => {
       $margin="3rem 0 0 0"
       $justifyContent="start"
     >
+      {toast.visible && (
+        <ToastContainer type={toast.type}>{toast.message}</ToastContainer>
+      )}
       <NavigateBar />
       <S.Wrapper>
         <S.TitleWrapper>

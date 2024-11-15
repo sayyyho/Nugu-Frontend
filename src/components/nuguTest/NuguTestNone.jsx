@@ -1,6 +1,6 @@
 //소유자가 테스트를 만듦 & 테스트를 진행한 사람이 존재하지 않음
 import * as S from "./styled";
-import SadCloud from "/images/nugu-sad.svg";
+import SadCloud from "/images/nugu-sad.png";
 import { NONE_TEXTS } from "@constants/nuguTest";
 
 export const NuguTestNone = ({ isTestOwner }) => {

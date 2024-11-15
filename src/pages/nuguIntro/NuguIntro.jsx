@@ -1,5 +1,5 @@
 import * as S from "./styled";
-import Nuguhalf from "/images/nugu-half.svg";
+import Nuguhalf from "/images/nugu-half.png";
 import GointroIcon from "/images/GointroIcon.svg";
 import BlueCloud from "/images/BlueCloud.svg";
 

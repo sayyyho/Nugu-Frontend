@@ -2,12 +2,36 @@ import { patchNuguInfo } from "@apis/nuguPatch";
 import { useRecoilState } from "recoil";
 import { signUpState } from "@atoms/signUpState";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 export const useNuguPatch = () => {
+  const [errors, setErrors] = useState({});
+
   const navigate = useNavigate();
   const [updateData, setUpdateData] = useRecoilState(signUpState);
   const handleSubmit = async () => {
     console.log(updateData);
+
+    let valid = true;
+    const tempErrors = {};
+
+    Object.keys(updateData).forEach((field) => {
+      const value = updateData[field];
+      const error = checkFieldValidity(value, field);
+      console.log(`Error for ${field}: ${error}`);
+
+      if (error !== "") {
+        valid = false;
+        tempErrors[field] = error;
+      } else {
+        delete tempErrors[field];
+      }
+    });
+    setErrors(tempErrors);
+    console.log(valid);
+    if (!valid) {
+      return;
+    }
+
     try {
       const response = await patchNuguInfo({
         nickname: updateData.nickname,
@@ -25,6 +49,32 @@ export const useNuguPatch = () => {
       throw err;
     }
   };
+  const checkFieldValidity = (value, fieldName) => {
+    let error = "";
+    // 각 필드에 대한 유효성 검사
+    if (fieldName === "username" && (value.length === 0 || value.length > 20)) {
+      error = "아이디는 20자 이내로 작성해주세요.";
+    } else if (
+      fieldName === "password" &&
+      (value.length < 8 || value.length > 16)
+    ) {
+      error = "비밀번호는 8-16자로 작성해주세요.";
+    } else if (fieldName === "nickname" && value.length > 5) {
+      error = "닉네임은 5자 이내로 작성해주세요.";
+    } else if (fieldName === "mbti") {
+      value = value.trim(); // 공백 제거
+      // 영문 4자 검사
+      if (value && !/^[A-Za-z]{4}$/.test(value)) {
+        error = "MBTI는 영문 4자로 입력해주세요."; // 오류 메시지
+      }
+    } else if (fieldName === "organization" && value.length > 30) {
+      error = "소속은 30자 이내로 작성해주세요.";
+    } else if (fieldName === "intro" && value.length > 30) {
+      error = "한 줄 소개는 30자 이내로 작성해주세요.";
+    }
+
+    return error;
+  };
 
   const isFormValid = () => {
     const requiredFields = [
@@ -39,5 +89,5 @@ export const useNuguPatch = () => {
     ];
     return requiredFields.every((field) => field !== "");
   };
-  return { handleSubmit, isFormValid };
+  return { handleSubmit, isFormValid, errors };
 };

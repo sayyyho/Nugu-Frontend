@@ -14,6 +14,7 @@ export const NuguTestTrue = ({ username }) => {
       try {
         const data = await getNuguTestRanking();
         setRanking(data);
+        console.log("user의 누구테스트 순위", ranking);
       } catch (err) {
         console.log(err);
       }

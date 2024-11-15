@@ -1,4 +1,5 @@
 import { instance } from "./instance";
+import Cookies from "js-cookie";
 export const patchNuguInfo = async ({
   nickname,
   mbti,
@@ -10,17 +11,24 @@ export const patchNuguInfo = async ({
   keyword3,
 }) => {
   try {
-    const response = await instance.patch("/user", {
-      nickname,
-      mbti,
-      org,
-
-      insta_url: insta_url ? `https://www.instagram.com/${insta_url}` : "",
-      intro,
-      keyword1,
-      keyword2,
-      keyword3,
-    });
+    const response = await instance.patch(
+      "/user",
+      {
+        nickname,
+        mbti,
+        org,
+        insta_url: insta_url ? `https://www.instagram.com/${insta_url}` : "",
+        intro,
+        keyword1,
+        keyword2,
+        keyword3,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("access_token")}`,
+        },
+      }
+    );
     console.log("patch된 정보", response);
     return response;
   } catch (err) {

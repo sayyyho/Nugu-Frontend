@@ -36,10 +36,10 @@ export const NavigateBar = () => {
               item.value === 1
                 ? `/nugu/${Cookies.get("uuid")}`
                 : item.value === 2
-                ? `/intro/${Cookies.get("uuid")}`
+                ? `/nuguIntro/${Cookies.get("uuid")}`
                 : isTokenAvailable
                 ? "/test"
-                : "/challenge"
+                : `/challenge/${Cookies.get("uuid")}`
             )
               ? "active"
               : ""

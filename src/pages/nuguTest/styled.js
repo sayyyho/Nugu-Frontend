@@ -4,7 +4,7 @@ export const TestContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   gap: 1rem;
 `;
 //makeTest
@@ -21,9 +21,10 @@ export const ChallengeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   gap: 2rem;
   padding-top: 1rem;
+  margin-bottom: 5rem;
 `;
 
 export const TestQuestionWrapper = styled.div`

@@ -57,10 +57,8 @@ export const ChallengerTest = () => {
   );
   console.log("rank[currentQuestion]", rank[currentQuestion]);
   //정답 비교
-  const isAnswerinCorrect =
-    selectedAnswer[currentQuestion] === null
-      ? null
-      : rank[currentQuestion] === selectedAnswer[currentQuestion]
+  const isAnswerCorrect =
+    Number(rank[currentQuestion]) == selectedAnswer[currentQuestion]
       ? true
       : false;
 
@@ -95,7 +93,7 @@ export const ChallengerTest = () => {
             handleAnswerSelect={handleAnswerSelect}
             handleNextQuestion={handleNextQuestion}
             TEST_QUESTION={TEST_QUESTION}
-            isAnswerinCorrect={isAnswerinCorrect}
+            isAnswerCorrect={isAnswerCorrect}
             isAnswerSelected={isAnswerSelected}
           />
         )}

@@ -9,10 +9,15 @@ export const TestQuestion = ({
   TEST_QUESTION,
   isAnswerCorrect, //정답이 맞는지-접속자
   isAnswerSelected, //선택되었는지 - 소유자
+  isUser,
 }) => {
   const handleSelect = (index) => {
-    if (selectedAnswer[currentQuestion] === null) {
+    if (isUser) {
       handleAnswerSelect(index);
+    } else {
+      if (selectedAnswer[currentQuestion] === null) {
+        handleAnswerSelect(index);
+      }
     }
   };
   console.log("isAnswerinCorrect:", isAnswerCorrect);

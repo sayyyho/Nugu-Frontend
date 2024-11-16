@@ -90,6 +90,7 @@ export const ChallengerTest = () => {
             TEST_QUESTION={TEST_QUESTION}
             isAnswerCorrect={isAnswerCorrect}
             isAnswerSelected={isAnswerSelected}
+            isUser={false}
           />
         )}
       </S.ChallengeContainer>

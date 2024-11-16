@@ -28,6 +28,7 @@ export const MakeNuguTest = () => {
         TEST_QUESTION={TEST_QUESTION}
         isAnswerCorrect={true}
         isAnswerSelected={isAnswerSelected}
+        isUser={true}
       />
     </>
   );

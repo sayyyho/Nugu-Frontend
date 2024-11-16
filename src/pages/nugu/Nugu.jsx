@@ -7,6 +7,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useNuguInfo } from "./_hooks/useNuguInfo";
 import { useToast } from "@hooks/useToast";
 import { ToastContainer } from "@components/toast/Toast";
+import { isIOS, isAndroid } from "react-device-detect";
 
 export const Nugu = () => {
   const { uuid } = useParams();
@@ -16,6 +17,17 @@ export const Nugu = () => {
   const moveOnPatch = () => {
     navigate(`/nugu/patch/${uuid}`);
   };
+  const handleMoveInstagram = (instaUrl) => {
+    if (isAndroid) {
+      window.open(
+        `intent://instagram.com${instaUrl}/#Intent;scheme=https;package=com.instagram.android;end`,
+        "_blank"
+      );
+    } else {
+      window.location.href = (`https://instagram.com${instaUrl}`, "_blank");
+    }
+  };
+
   const handleShare = () => {
     const currentUrl = window.location.href;
     navigator.clipboard
@@ -41,12 +53,7 @@ export const Nugu = () => {
         <S.TitleWrapper>
           <S.MainTextWrapper>
             <S.NuguTitle>{data.nickname}의 누구</S.NuguTitle>
-            <S.Image
-              src={"/images/insta.svg"}
-              onClick={() =>
-                window.open(`https://instagram.com/${data.instaUrl}`, "_blank")
-              }
-            />
+            <S.Image src={"/images/insta.svg"} onClick={handleMoveInstagram} />
           </S.MainTextWrapper>
           <S.MBTITitle>{data.mbti}</S.MBTITitle>
           <S.MemberTitle>{data.org}</S.MemberTitle>
@@ -64,7 +71,9 @@ export const Nugu = () => {
         </S.ChipWrapper>
         {isAdmin && (
           <S.AdminWrapper>
-            <S.ShareBtn onClick={handleShare}>누구 공유하기</S.ShareBtn>
+            <S.ShareBtn onClick={() => handleShare(data.instaUrl)}>
+              누구 공유하기
+            </S.ShareBtn>
             <S.EditBtn onClick={() => moveOnPatch()}>수정하기</S.EditBtn>
           </S.AdminWrapper>
         )}

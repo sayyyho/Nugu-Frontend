@@ -1,5 +1,4 @@
 import { instance } from "./instance";
-import Cookies from "js-cookie";
 export const patchNuguInfo = async ({
   nickname,
   mbti,
@@ -25,7 +24,7 @@ export const patchNuguInfo = async ({
       },
       {
         headers: {
-          Authorization: `Bearer ${Cookies.get("access_token")}`,
+          Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
         },
       }
     );
@@ -43,7 +42,7 @@ export const getNugu = async () => {
 
       {
         headers: {
-          Authorization: `Bearer ${Cookies.get("access_token")}`,
+          Authorization: `Bearer ${sessionStorage.getItem("access_token")}`,
         },
       }
     );

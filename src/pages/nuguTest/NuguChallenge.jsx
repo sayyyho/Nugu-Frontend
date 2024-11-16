@@ -32,7 +32,7 @@ export const NuguChallenge = () => {
   }, []);
   //수정 필요
   const moveOnTest = () => {
-    navigate(`/challenge/test/${Cookies.get("uuid")}`);
+    navigate(`/challenge/test/${Cookies.get("")}`);
   };
   return (
     <Layout $margin="3rem 0 0 0" $justifyContent="start">

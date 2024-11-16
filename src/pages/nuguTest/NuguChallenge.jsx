@@ -15,14 +15,14 @@ import { testUser } from "@atoms/testUser";
 import Cookies from "js-cookie";
 
 export const NuguChallenge = () => {
-  const {} = useParams();
+  const { uuid } = useParams();
   const [isTestMake, setIsTestMake] = useState(false);
   const setTestUser = useSetRecoilState(testUser);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getGuestViewIsUserTest();
+        const data = await getGuestViewIsUserTest(uuid);
         setIsTestMake(data.hasTest);
       } catch (err) {
         throw err;

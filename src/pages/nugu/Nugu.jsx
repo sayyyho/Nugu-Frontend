@@ -24,7 +24,7 @@ export const Nugu = () => {
         "_blank"
       );
     } else {
-      window.open(`https://instagram.com${instaUrl}`, "_blank");
+      window.open(`https://instagram.com/${instaUrl}`, "_blank");
     }
   };
 

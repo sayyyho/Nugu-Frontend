@@ -15,14 +15,14 @@ import { testUser } from "@atoms/testUser";
 import Cookies from "js-cookie";
 
 export const NuguChallenge = () => {
-  const { uuid } = useParams();
+  const {} = useParams();
   const [isTestMake, setIsTestMake] = useState(false);
   const setTestUser = useSetRecoilState(testUser);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getGuestViewIsUserTest(uuid);
+        const data = await getGuestViewIsUserTest();
         setIsTestMake(data.hasTest);
       } catch (err) {
         throw err;
@@ -32,7 +32,7 @@ export const NuguChallenge = () => {
   }, []);
   //수정 필요
   const moveOnTest = () => {
-    navigate(`/challenge/test/${Cookies.get("uuid")}`);
+    navigate(`/challenge/test/${Cookies.get("")}`);
   };
   return (
     <Layout $margin="3rem 0 0 0" $justifyContent="start">

@@ -6,7 +6,9 @@ import Cookies from "js-cookie";
 export const NavigateBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const isTokenAvailable = Cookies.get("access_token") ? true : false;
+  const isTokenAvailable = sessionStorage.getItem("access_token")
+    ? true
+    : false;
   const handleMovePage = (value) => {
     let path;
     switch (value) {

@@ -15,11 +15,9 @@ export const useNuguInfo = (uuid) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    if (!Cookies.get("uuid")) {
-      Cookies.set("uuid", uuid);
-    }
+    Cookies.set("uuid", uuid);
 
-    if (Cookies.get("access_token")) {
+    if (sessionStorage.getItem("access_token")) {
       setIsAdmin(true);
     }
 

@@ -13,29 +13,22 @@ import { CHIP_DATA } from "@constants/chip";
 import { Button } from "@components/common/button/Button";
 import { useNuguPatch } from "./_hooks/useNuguPatch";
 import { getNugu } from "@apis/nuguPatch";
+
+import { useToast } from "@hooks/useToast";
+import { ToastContainer } from "@components/toast/Toast";
+import { useNavigate } from "react-router-dom";
+
 export const NuguPatch = () => {
   const [updateData, setUpdateData] = useRecoilState(signUpState);
   const { errors, handleSubmit, isFormValid } = useNuguPatch();
   const { selectedChip, handleClickStatus, selectedCount } = usePatchChip();
-
+  const navigate = useNavigate();
+  const { toast, showToast } = useToast();
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const userData = await getNugu();
-        // if (userData.insta_url) {
-        //   const instaUsername = userData.insta_url.replace(
-        //     "https://www.instagram.com/",
-        //     ""
-        //   );
-        //   console.log("instaUsername", instaUsername);
-        //   setUpdateData({
-        //     ...userData,
-        //     insta_url: instaUsername,
-        //   });
-        //   console.log("updateData", updateData);
-        // } else {
         setUpdateData(userData);
-        //  }
       } catch (err) {
         console.error("Patch-user정보 가져오기 실패", err);
       }
@@ -51,12 +44,27 @@ export const NuguPatch = () => {
     }));
   };
 
+  const handleClick = async () => {
+    try {
+      await handleSubmit();
+      showToast("변경 완료!", "success");
+      setTimeout(() => {
+        navigate(-1);
+      }, 2000);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Layout
       $backgroundColor={"gray200"}
       $margin="0 0 0 0"
       $justifyContent="start"
     >
+      {toast.visible && (
+        <ToastContainer type={toast.type}>{toast.message}</ToastContainer>
+      )}
       <S.PatchWrapper>
         <S.TopWrapper>
           <ProgressBar title={"누구 수정하기"} $now={4} $total={4} />
@@ -95,7 +103,7 @@ export const NuguPatch = () => {
         </S.TopWrapper>
         <Button
           disabled={selectedCount !== 3 || !isFormValid()}
-          onClick={handleSubmit}
+          onClick={handleClick}
         >
           저장하기
         </Button>

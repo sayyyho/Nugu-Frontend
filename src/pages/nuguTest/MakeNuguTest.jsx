@@ -26,7 +26,7 @@ export const MakeNuguTest = () => {
         handleAnswerSelect={handleAnswerSelect}
         handleNextQuestion={handleNextQuestion}
         TEST_QUESTION={TEST_QUESTION}
-        isAnswerinCorrect={true}
+        isAnswerCorrect={true}
         isAnswerSelected={isAnswerSelected}
       />
     </>

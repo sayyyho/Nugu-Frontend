@@ -29,7 +29,9 @@ export const TestQuestion = ({
             <S.AnswerBox
               key={index}
               onClick={() => handleSelect(index)}
-              $isSelected={selectedAnswer[currentQuestion] === index}
+              $isSelected={
+                isAnswerSelected && selectedAnswer[currentQuestion] === index
+              }
               $isAnswerCorrect={
                 isAnswerCorrect && selectedAnswer[currentQuestion] === index
               }

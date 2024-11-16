@@ -19,9 +19,8 @@ export const Nugu = () => {
   };
   const handleMoveInstagram = (instaUrl) => {
     if (isAndroid) {
-      window.open(
-        `intent://instagram.com${instaUrl}/#Intent;scheme=https;package=com.instagram.android;end`,
-        "_blank"
+      window.location.replace(
+        `intent://instagram.com/${instaUrl}#Intent;scheme=https;package=com.instagram.android;end`
       );
     } else {
       window.open(`https://instagram.com/${instaUrl}`, "_blank");

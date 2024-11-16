@@ -24,7 +24,7 @@ export const Nugu = () => {
         "_blank"
       );
     } else {
-      window.location.href = (`https://instagram.com${instaUrl}`, "_blank");
+      window.open(`https://instagram.com${instaUrl}`, "_blank");
     }
   };
 
@@ -53,7 +53,10 @@ export const Nugu = () => {
         <S.TitleWrapper>
           <S.MainTextWrapper>
             <S.NuguTitle>{data.nickname}의 누구</S.NuguTitle>
-            <S.Image src={"/images/insta.svg"} onClick={handleMoveInstagram} />
+            <S.Image
+              src={"/images/insta.svg"}
+              onClick={() => handleMoveInstagram(data.instaUrl)}
+            />
           </S.MainTextWrapper>
           <S.MBTITitle>{data.mbti}</S.MBTITitle>
           <S.MemberTitle>{data.org}</S.MemberTitle>
@@ -71,9 +74,7 @@ export const Nugu = () => {
         </S.ChipWrapper>
         {isAdmin && (
           <S.AdminWrapper>
-            <S.ShareBtn onClick={() => handleShare(data.instaUrl)}>
-              누구 공유하기
-            </S.ShareBtn>
+            <S.ShareBtn onClick={() => handleShare()}>누구 공유하기</S.ShareBtn>
             <S.EditBtn onClick={() => moveOnPatch()}>수정하기</S.EditBtn>
           </S.AdminWrapper>
         )}
